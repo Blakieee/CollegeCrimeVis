@@ -1,51 +1,81 @@
-<div class='tableauPlaceholder' id='viz1733010851639' style='position: relative'>
-    <!-- Fallback content if JavaScript is disabled -->
-    <noscript>
-        <a href='#'>
-            <img alt='Dashboard 1' 
-                 src='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1_rss.png' 
-                 style='border: none' />
-        </a>
-    </noscript>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tableau 仪表板嵌入示例</title>
+    <style>
+        /* 可根据需求调整样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .tableauPlaceholder {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tableau 仪表板嵌入示例</h1>
+        <div class='tableauPlaceholder' id='viz1733010851639' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Dashboard 1' 
+                         src='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1_rss.png' 
+                         style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display: none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='Book1_17326628217500/Dashboard1' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='zh-CN' />
+            </object>
+        </div>
+    </div>
 
-    <!-- Tableau visualization object -->
-    <object class='tableauViz' style='display: none;'>
-        <!-- Tableau server configuration -->
-        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-        <param name='embed_code_version' value='3' />
-        <param name='site_root' value='' />
-        <param name='name' value='Book1_17326628217500/Dashboard1' />
-        <param name='tabs' value='no' />
-        <param name='toolbar' value='yes' />
-        <param name='static_image' value='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1.png' />
-        <param name='animate_transition' value='yes' />
-        <param name='display_static_image' value='yes' />
-        <param name='display_spinner' value='yes' />
-        <param name='display_overlay' value='yes' />
-        <param name='display_count' value='yes' />
-        <param name='language' value='zh-CN' />
-    </object>
-</div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1733010851639');
+        var vizElement = divElement.getElementsByTagName('object')[0];
 
-<script type='text/javascript'>
-    // Find the Tableau visualization container by ID
-    var divElement = document.getElementById('viz1733010851639');
-    var vizElement = divElement.getElementsByTagName('object')[0];
+        if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1527px';
+        }
 
-    // Adjust the visualization's size dynamically based on the container's width
-    if (divElement.offsetWidth > 800) {
-        vizElement.style.width = '100%';
-        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-    } else if (divElement.offsetWidth > 500) {
-        vizElement.style.width = '100%';
-        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-    } else {
-        vizElement.style.width = '100%';
-        vizElement.style.height = '1527px';
-    }
-
-    // Load the Tableau JavaScript API
-    var scriptElement = document.createElement('script');
-    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-</script>
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+</body>
+</html>
