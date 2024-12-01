@@ -160,15 +160,16 @@
                 </div>
             </div>
         </section>
+
         <section>
             <div class="text">
                 <p>Encouragingly, some crimes, such as Incest, have remained at a low baseline. Rape and Fondling have shown declining patterns, offering a glimmer of hope that education, awareness campaigns, and institutional policies are making an impact.</p>
             </div>
             <div class="image">
-                <div class='tableauPlaceholder' id='viz1733088996295' style='width: 100%; height: 100%;'>
+                <div class='tableauPlaceholder' id='viz1733089591669' style='width: 100%; height: 100%;'>
                     <noscript>
                         <a href='#'>
-                            <img alt='Yearly Change in Crime Types' 
+                            <img alt='Yearly Change in Crime Type' 
                                  src='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes1/1_rss.png' 
                                  style='border: none' />
                         </a>
@@ -191,6 +192,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Transition para -->
         <section class="centered-text">
             <div class="text">
@@ -232,28 +234,29 @@
         <!-- Tableau Chart -->
         <section>
             <div class="chart-container">
-                <div class='tableauPlaceholder' id='viz1733031206875'>
+                <div class='tableauPlaceholder' id='viz1733091043213' style='position: relative'>
                     <noscript>
                         <a href='#'>
-                            <img alt='Dashboard 1 ' 
-                                 src='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1_rss.png' 
-                                 style='border: none;' />
+                            <img alt='Dashboard 1' 
+                                 src='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1_rss.png' 
+                                 style='border: none' />
                         </a>
                     </noscript>
-                    <object class='tableauViz'>
+                    <object class='tableauViz' style='display:none;'>
                         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                         <param name='embed_code_version' value='3' />
                         <param name='site_root' value='' />
-                        <param name='name' value='Book1_17326628217500/Dashboard1' />
+                        <param name='name' value='CampusCrimeDashboard_17330326085360/Dashboard1' />
                         <param name='tabs' value='no' />
                         <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Bo/Book1_17326628217500/Dashboard1/1.png' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1.png' />
                         <param name='animate_transition' value='yes' />
                         <param name='display_static_image' value='yes' />
                         <param name='display_spinner' value='yes' />
                         <param name='display_overlay' value='yes' />
                         <param name='display_count' value='yes' />
                         <param name='language' value='zh-CN' />
+                        <param name='ignore_sticky_session' value='yes' />
                     </object>
                 </div>
             </div>
@@ -311,14 +314,27 @@
         document.body.appendChild(scriptElement);
 
         scriptElement.onload = function () {
-            var divElement = document.getElementById('viz1733031206875');
-            var vizElement = divElement.getElementsByTagName('object')[0];
+            // 初始化图表1
+            var divElement1 = document.getElementById('viz1733088996295');
+            var vizElement1 = divElement1.getElementsByTagName('object')[0];
+            vizElement1.style.width = '100%';
+            vizElement1.style.height = (divElement1.offsetWidth * 0.75) + 'px';
+
+            // 初始化图表2
+            var divElement2 = document.getElementById('viz1733089591669');
+            var vizElement2 = divElement2.getElementsByTagName('object')[0];
+            vizElement2.style.width = '100%';
+            vizElement2.style.height = (divElement2.offsetWidth * 0.75) + 'px';
+
+            // 初始化图表3
+            var divElement3 = document.getElementById('viz1733091043213');
+            var vizElement3 = divElement3.getElementsByTagName('object')[0];
 
             function resizeTableau() {
-                const containerWidth = divElement.offsetWidth;
-                const containerHeight = window.innerHeight;
-                vizElement.style.width = containerWidth + "px";
-                vizElement.style.height = containerHeight + "px";
+                const containerWidth3 = divElement3.offsetWidth;
+                const containerHeight3 = window.innerHeight;
+                vizElement3.style.width = containerWidth3 + "px";
+                vizElement3.style.height = containerHeight3 * 0.95 + "px";
             }
 
             resizeTableau();
