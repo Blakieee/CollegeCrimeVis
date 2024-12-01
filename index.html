@@ -27,8 +27,8 @@
         section {
             scroll-snap-align: start;
             display: flex;
-            justify-content: space-between; /* 左右布局 */
-            align-items: center; /* 确保文字和图片垂直方向都居中 */
+            justify-content: space-between;
+            align-items: center;
             height: 100vh;
             padding: 20px;
             box-sizing: border-box;
@@ -53,9 +53,9 @@
         .text {
             flex: 1;
             max-width: 45%;
-            display: flex; /* 启用 flex 布局 */
-            flex-direction: column; /* 确保文字内容保持垂直排列 */
-            justify-content: center; /* 上下居中 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding-right: 20px;
         }
 
@@ -64,7 +64,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center; /* 图片垂直顶部对齐 */
+            align-items: center;
             height: 100%;
             overflow-y: auto;
         }
@@ -77,24 +77,45 @@
 
         /* Alternating background colors */
         section:nth-child(odd) {
-            background-color: #ffffff;
+            background-color: #2E2E2E;
+            color: #ffffff;
         }
 
         section:nth-child(even) {
-            background-color: #f0f0f0;
+            background-color: #4B0000;
+            color: #e0e0e0;
         }
 
         /* Tableau chart container */
         .chart-container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            height: calc(100vh - 50px);
+            height: 100%;
+            position: relative;
+        }
+
+        .tableauPlaceholder {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tableauViz {
+            width: 100%;
+            height: 100%;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <main>
+        <!-- 视频页面 -->
+        <section style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: black;">
+            <video id="dynamicVideo" muted loop style="width: 100%; height: 100%; object-fit: cover;" controlslist="nodownload noplaybackrate nofullscreen" disablepictureinpicture>
+                <source src="videos/movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- 第一页 -->
         <!-- Overview -->
         <section>
             <div class="text">
@@ -211,7 +232,7 @@
         <!-- Tableau Chart -->
         <section>
             <div class="chart-container">
-                <div class='tableauPlaceholder' id='viz1733031206875' style='position: relative'>
+                <div class='tableauPlaceholder' id='viz1733031206875'>
                     <noscript>
                         <a href='#'>
                             <img alt='Dashboard 1 ' 
@@ -219,7 +240,7 @@
                                  style='border: none;' />
                         </a>
                     </noscript>
-                    <object class='tableauViz' style='display:none;'>
+                    <object class='tableauViz'>
                         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                         <param name='embed_code_version' value='3' />
                         <param name='site_root' value='' />
@@ -239,22 +260,70 @@
         </section>
     </main>
 
-    <script type='text/javascript'>
-        var divElement = document.getElementById('viz1733031206875');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        if (divElement.offsetWidth > 800) {
-            vizElement.style.width = '100%';
-            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-        } else if (divElement.offsetWidth > 500) {
-            vizElement.style.width = '100%';
-            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-        } else {
-            vizElement.style.width = '100%';
-            vizElement.style.height = '1527px';
-        }
+    <script>
+        // 滚动控制视频播放速度
+        const video = document.getElementById('dynamicVideo');
+        let isVideoActive = true;
+
+        // 定义滚动速度，值越大滚动速度越慢（每次滚动增加的时间更少）
+        const scrollSpeed = 0.08; // 每次滚动增加 0.1 秒
+
+        window.addEventListener(
+            'wheel',
+            (event) => {
+                if (isVideoActive) {
+                    const delta = event.deltaY; // 滚动方向和距离
+                    if (delta > 0) {
+                        // 向下滚动，视频向前
+                        video.currentTime = Math.min(video.currentTime + scrollSpeed, video.duration);
+                    } else {
+                        // 向上滚动，视频向后
+                        video.currentTime = Math.max(video.currentTime - scrollSpeed, 0);
+                    }
+
+                    // 如果视频播放到结尾，停止控制滚动，并允许页面继续滚动
+                    if (video.currentTime === video.duration) {
+                        isVideoActive = false;
+                    }
+
+                    // 阻止页面默认滚动行为
+                    event.preventDefault();
+                }
+            },
+            { passive: false }
+        );
+
+        // 视频播放结束后跳转到下一页
+        video.addEventListener('ended', () => {
+            isVideoActive = false; // 停止滚轮对视频的控制
+
+            // 自动跳转到下一页
+            const nextSection = video.parentElement.nextElementSibling;
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Tableau 初始化脚本
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        scriptElement.async = true;
+        document.body.appendChild(scriptElement);
+
+        scriptElement.onload = function () {
+            var divElement = document.getElementById('viz1733031206875');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+
+            function resizeTableau() {
+                const containerWidth = divElement.offsetWidth;
+                const containerHeight = window.innerHeight;
+                vizElement.style.width = containerWidth + "px";
+                vizElement.style.height = containerHeight + "px";
+            }
+
+            resizeTableau();
+            window.addEventListener('resize', resizeTableau);
+        };
     </script>
 </body>
 </html>
