@@ -7,21 +7,59 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-size: 15px; /* 设置正文字体大小为15号 */
             margin: 0;
-            padding: 0;
+            padding: 20px;
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            line-height: 1.5; /* 设置行距为1.5倍 */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .content {
+            margin-bottom: 40px;
+        }
+        .content img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 20px;
         }
         .tableauPlaceholder {
             width: 100%;
             max-width: 1200px;
+            margin: 40px auto;
         }
     </style>
 </head>
 <body>
+    <!-- Section 1: control.png -->
+    <div class="content">
+        <h2>Crime Rate Distribution by University Type</h2>
+        <img src="./images/control.png" alt="Crime Rate Distribution">
+        <p>
+            Based on the data in the chart, the interquartile range (IQR) of crime rates at private universities (0.41%) is wider compared to that of public universities (0.28%). This indicates that crime rates vary more significantly among private universities, whereas the distribution of crime rates in public universities is more concentrated. Additionally, the median crime rate for private universities (0.33%) is higher than that of public universities (0.22%). Private universities also exhibit some extreme values where crime rates exceed 1.2%, while public universities have fewer and less severe outliers.
+        </p>
+        <p>
+            Overall, the crime rate distribution for private universities is right-skewed, with the majority of institutions having relatively low crime rates, but a few experiencing significantly higher rates. In contrast, public universities display a more centralized distribution with generally lower crime rates. Therefore, it is recommended to implement enhanced safety measures targeting high-crime private universities, while public universities should continue optimizing their existing centralized safety protocols to further reduce their median crime rate.
+        </p>
+    </div>
+
+    <!-- Section 2: rank.png -->
+    <div class="content">
+        <h2>QS 2021 Rankings and Crime Rates</h2>
+        <img src="./images/rank.png" alt="QS Rankings and Crime Rates">
+        <p>
+            This chart displays the QS 2021 rankings of the top 150 universities in the United States and their corresponding crime rate distributions. The grey dots represent the universities’ rankings, decreasing from left to right. The colored lines indicate each university’s crime rate, calculated by dividing the number of crimes by the number of students and expressed as a percentage. The variation in color further reflects the level of crime rates: green signifies lower crime rates, while red denotes higher crime rates.
+        </p>
+        <p>
+            From the chart, it can be observed that among the universities ranked within the top 70 by QS, schools with higher crime rates include Stanford University, the University of Michigan, and North Carolina State University at Raleigh; their crime rates are significantly higher, with colored lines appearing red. Johns Hopkins University, Dartmouth College, and the University of Notre Dame also exhibit moderately high crime rates. In contrast, universities ranked after 70 show a more uniform and lower distribution of crime rates; many schools’ colored lines display a green trend, indicating that these institutions have relatively better campus safety conditions.
+        </p>
+    </div>
+
+    <!-- Tableau Dashboard -->
     <div class='tableauPlaceholder' id='viz1733011634671' style='position: relative'>
         <noscript>
             <a href='#'>
@@ -46,21 +84,26 @@
     </div>
 
     <script type='text/javascript'>
-        // Dynamically adjust Tableau dashboard dimensions
+        // Final section for user exploration
+        // Dynamically adjust Tableau dashboard dimensions based on screen width
         var divElement = document.getElementById('viz1733011634671');
         var vizElement = divElement.getElementsByTagName('object')[0];
+
         if (divElement.offsetWidth > 800) {
+            // For wider screens, set width to 100% and height proportional to 4:3 aspect ratio
             vizElement.style.width = '100%';
             vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
         } else if (divElement.offsetWidth > 500) {
+            // For medium screens, maintain same proportional adjustment
             vizElement.style.width = '100%';
             vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
         } else {
+            // For smaller screens, set a fixed height for better viewing
             vizElement.style.width = '100%';
             vizElement.style.height = '1527px';
         }
 
-        // Load Tableau JavaScript API
+        // Load Tableau JavaScript API to render the visualization
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
