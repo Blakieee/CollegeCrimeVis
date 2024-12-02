@@ -115,11 +115,10 @@
             </video>
         </section>
 
-        <!-- 第一页 -->
         <!-- Overview -->
         <section class="centered-text">
             <div class="text">
-                <!-- <h2 style="font-size: 36px; font-weight: bold;">Campus Safety Overview</h2> -->
+                <h2 style="font-size: 36px; font-weight: bold;">Overview</h2>
                 <p>
                     Campus safety is a <span style="color: #FFDD44; font-weight: bold;">top priority</span> for institutions, students, and parents alike. By analyzing campus crime data from the past three years, we gain insights into patterns and priorities for creating safer learning environments.
                 </p>
@@ -135,9 +134,11 @@
                 </p>
             </div>
         </section>
+
         <!-- Change Trend -->
         <section class="centered-text">
             <div class="text">
+                <h2 style="font-size: 36px; font-weight: bold;">Yearly Change in Crime Types</h2>
                 <p>While major crime types dominate the overall trends, smaller categories have shown notable shifts. We visualize the <span style="color: #FFDD44; font-weight: bold;">year-over-year differences</span> in crime totals, revealing both alarming and promising trends.</p>
             </div>
         </section>
@@ -168,7 +169,7 @@
                         <param name='display_spinner' value='yes' />
                         <param name='display_overlay' value='yes' />
                         <param name='display_count' value='yes' />
-                        <param name='language' value='zh-US' />
+                        <param name='language' value='en-US' />
                     </object>
                 </div>
             </div>
@@ -200,7 +201,7 @@
                         <param name='display_spinner' value='yes' />
                         <param name='display_overlay' value='yes' />
                         <param name='display_count' value='yes' />
-                        <param name='language' value='zh-US' />
+                        <param name='language' value='en-US' />
                     </object>
                 </div>
             </div>
@@ -211,7 +212,7 @@
             <div class="text">
                 <p>Understanding campus crime trends is just the beginning of addressing safety challenges in educational institutions.</p>
                 <h1>What shapes campus crime patterns?</h1>
-                <p>Key influences include <span style="font-style: italic; color: red;">state crime rates</span>, <span style="font-style: italic; color: red;">school control and rankings</span>, <span style="font-style: italic; color: red;">political climates</span>, and <span style="font-style: italic; color: red;">local economic conditions</span>. Examining these factors reveals how broader contexts intersect with campus safety, offering opportunities for targeted solutions.</p>
+                <p>Key influences include <span style="font-style: italic; color: rgb(255, 106, 106);">state crime rates</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">school control and rankings</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">political climates</span>, and <span style="font-style: italic; color: rgb(255, 106, 106);">local economic conditions</span>. Examining these factors reveals how broader contexts intersect with campus safety, offering opportunities for targeted solutions.</p>
             </div>
         </section>              
 
@@ -231,7 +232,7 @@
             </div>
         </section>
 
-        <!-- 第二页 -->
+        <!-- School Ranking -->
         <section>
             <div class="text">
                 <h2>QS 2021 Rankings and Crime Rates</h2>
@@ -241,6 +242,80 @@
             </div>
             <div class="image">
                 <img src="./images/rank.png" alt="QS 2021 Rankings and Crime Rates">
+            </div>
+        </section>
+
+        <!-- Political -->
+        <section class="centered-text">
+            <div class="text">
+                <h2 style="font-size: 36px; font-weight: bold;">Political Climate</h2>
+                <p>
+                    The <span style="color: #FFDD44; font-weight: bold;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses. However, by comparing campus crime rates with state political leanings (based on the 2020 election results), we uncover trends that challenge assumptions and highlight regional disparities.
+                </p>
+            </div>
+        </section> 
+        <section>
+            <div class="text">
+                <p>
+                    The equal-area map shows the clear partisan divide of states (<span style="color: #4E79A7;">Democratic-leaning</span> and <span style="color: #E15759;">Republican-leaning</span>), while the cartogram states are resized based on their average campus crime rates, revealing a striking shift in proportions. 
+                </p>
+                <p>
+                    Republican-leaning states account for <span style="color: #E15759; font-weight: bold;">56.97%</span> of the total adjusted area, compared to <span style="color: #4E79A7; font-weight: bold;">43.03%</span> for Democratic-leaning states. This suggests that campuses in Republican-dominated states experience proportionally higher average crime rates, <span style="font-weight: bold; text-decoration: underline;">challenging the common narrative</span> associating liberal areas with higher crime.
+                </p>
+            </div>
+            <div class="image" style="text-align: center;">
+                <img src="./images/cartogram2.png" alt="Cartogram map" 
+                     style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>                               
+        </section>
+        <section>
+            <div class="text">
+                <p>
+                    This disproportionate representation in the cartogram also highlights <span style="text-decoration: underline;">a significant contribution</span> from certain Republican-leaning states, most notably <span style="color: #E15759; font-weight: bold;">Texas</span>.
+                </p>
+            </div>
+            <div class="image" style="text-align: center;">
+                <img src="./images/cartogram-texas.png" alt="Cartogram map highlighting Texas" 
+                     style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>                               
+        </section>
+        <section>
+            <div class="image">
+                <div class='tableauPlaceholder' id='viz1733102908711' style='width: 100%; height: 100%;'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Average Campus Crime Rate vs. State Political Tendency' 
+                                 src='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1_rss.png' 
+                                 style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='width: 100%; height: 100%;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='Jitterstackedbarchartpolitical/Bar2' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+            </div>
+            <div class="text">
+                <p>
+                    As the largest outlier, <span style="text-decoration: underline;">Texas</span> alone drives much of this imbalance, 
+                    with an average campus crime rate of <span style="color: #FFDD44; font-weight: bold;">19.83%</span>—a figure that far exceeds 
+                    the rates observed in both Republican and Democratic-leaning states, which generally remain below <span style="color: #F1CE63; font-weight: bold;">8.5%</span>.
+                </p>
+                <p>
+                    Such a stark contrast invites deeper scrutiny into the unique factors at play in Texas, 
+                    including its extensive campus networks, the influence of statewide policies, and potential disparities in crime reporting practices.
+                </p>
             </div>
         </section>
 
@@ -268,7 +343,7 @@
                         <param name='display_spinner' value='yes' />
                         <param name='display_overlay' value='yes' />
                         <param name='display_count' value='yes' />
-                        <param name='language' value='zh-US' />
+                        <param name='language' value='en-US' />
                         <param name='ignore_sticky_session' value='yes' />
                     </object>
                 </div>
@@ -349,31 +424,37 @@
         document.body.appendChild(scriptElement);
 
         scriptElement.onload = function () {
-            // 初始化图表1
             var divElement1 = document.getElementById('viz1733088996295');
             var vizElement1 = divElement1.getElementsByTagName('object')[0];
             vizElement1.style.width = '100%';
             vizElement1.style.height = (divElement1.offsetWidth * 0.75) + 'px';
 
-            // 初始化图表2
             var divElement2 = document.getElementById('viz1733089591669');
             var vizElement2 = divElement2.getElementsByTagName('object')[0];
             vizElement2.style.width = '100%';
             vizElement2.style.height = (divElement2.offsetWidth * 0.75) + 'px';
 
-            // 初始化图表3
-            var divElement3 = document.getElementById('viz1733091043213');
-            var vizElement3 = divElement3.getElementsByTagName('object')[0];
-
-            function resizeTableau() {
-                const containerWidth3 = divElement3.offsetWidth;
-                const containerHeight3 = window.innerHeight;
-                vizElement3.style.width = containerWidth3 + "px";
-                vizElement3.style.height = containerHeight3 * 0.95 + "px";
+            var divElement3 = document.getElementById('viz1733102908711');
+            if (divElement3) {
+                var vizElement3 = divElement3.getElementsByTagName('object')[0];
+                vizElement3.style.width = '90%';
+                vizElement3.style.height = (divElement3.offsetWidth * 0.75) + 'px';
             }
 
-            resizeTableau();
-            window.addEventListener('resize', resizeTableau);
+            var divElement4 = document.getElementById('viz1733091043213');
+            if (divElement4) {
+                var vizElement4 = divElement4.getElementsByTagName('object')[0];
+
+                function resizeTableau() {
+                    const containerWidth4 = divElement4.offsetWidth;
+                    const containerHeight4 = window.innerHeight;
+                    vizElement4.style.width = containerWidth4 + "px";
+                    vizElement4.style.height = containerHeight4 * 0.95 + "px";
+                }
+
+                resizeTableau();
+                window.addEventListener('resize', resizeTableau);
+            }
         };
     </script>
 </body>
