@@ -74,6 +74,18 @@
             max-width: 800px;
             height: auto;
         }
+        
+        .rankimage {
+            flex: 1;
+            display: block; /* 保持 block 布局 */
+            height: calc(100vh - 40px); /* 确保内容高度减去 margin 的高度 */
+            overflow-y: auto;
+            margin-top: 20px; /* 添加顶部外边距 */
+            margin-bottom: 20px; /* 添加底部外边距 */
+            padding-top: 20px; /* 保持 padding 确保顶部可见 */
+            padding-bottom: 20px; /* 保持 padding 确保底部可见 */
+            box-sizing: border-box; /* 确保 padding 和 margin 不影响宽高 */
+        }
 
         /* Alternating background colors */
         section:nth-child(odd) {
@@ -216,6 +228,33 @@
             </div>
         </section>              
 
+
+
+        <!-- Campus Crime & State Crime -->
+        <section class="centered-text">
+            <div class="text">
+                <h2 style="font-size: 36px; font-weight: bold;">Campus Crime & State Crime</h2>
+                <p>While liquor is the top crime type across campuses, it only takes up a very limited portion of the state crimes. On the other hand, the second-highest crime type on campus is also the dominant offense in state crime, being Drug-related offenses. Compared to the top campus crimes, violent crime appeared to take up a significant portion. </p>
+            </div>
+            <div class="image">
+                <img src="./images/CrimeTypeByStates.png" alt="Campus Crime & State Crime"
+                style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>
+        </section>   
+
+
+        <!-- State vs. Campus Crime -->
+        <section class="centered-text">
+            <div class="text">
+                <h2 style="font-size: 36px; font-weight: bold;">State vs. Campus Crime</h2>
+                <p>Now if we compare the state crimes and campus crimes side-by-side. We observe that while Texas and California are the two states with most state crimes reported, the highest campus crime concentration actually occurs in Colorado and Indiana, followed by South Carolina. We would assume that the density of state crime aligns with that of the campus crime, and this brings us to think about the issue of data humanism. </p>
+            </div>
+            <div class="image">
+                <img src="./images/StatevsCampusCrime.png" alt="State vs. Campus Crime"
+                style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>
+        </section>   
+
         <!-- University Type -->
         <section>
             <div class="text">
@@ -227,8 +266,8 @@
                     Additionally, the <strong>median crime rate for private universities (0.33%)</strong> is higher than that of public universities (0.22%). Private universities also exhibit some extreme values where <strong>crime rates exceed 1.2%</strong>, while public universities have fewer and less severe outliers.
                 </p>
             </div>
-            <div class="image">
-                <img src="./images/control.png" alt="Crime Rate Distribution">
+            <div class="image"  style="text-align: center;" >
+                <img src="./images/control.png" alt="Crime Rate Distribution"  style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;">
             </div>
         </section>
 
@@ -240,7 +279,7 @@
                     This chart displays the <strong>QS 2021 rankings</strong> of the top 150 universities in the United States and their corresponding crime rate distributions. The grey dots represent the universities’ rankings, decreasing from left to right. The colored lines indicate each university’s crime rate, calculated by dividing the <strong>number of crimes by the number of students and expressed as a percentage</strong>. The variation in color further reflects the level of crime rates: <strong>green signifies lower crime rates</strong>, while <strong>red denotes higher crime rates</strong>.
                 </p>
             </div>
-            <div class="image">
+            <div class="rankimage">
                 <img src="./images/rank.png" alt="QS 2021 Rankings and Crime Rates">
             </div>
         </section>
@@ -319,6 +358,31 @@
             </div>
         </section>
 
+
+        <!-- School Ranking -->
+        <section>
+            <div class="text">
+                <h2>Crime Rate VS Unemployment Rate</h2>
+                <p>
+                    Counties with higher employment often show elevated crime rates: Green points, representing higher employment levels, cluster in areas with crime rates reaching 10%-15%. These counties are likely urban areas with significant economic activity, which may create opportunities for both legitimate work and increased crime due to population density and resource competition. 
+                </p>
+                <p>
+                    A negative correlation exists between unemployment and crime rates: The regression line highlights that as unemployment increases, crime rates tend to decrease. This may reflect the nature of rural or suburban areas, where higher unemployment is often paired with lower population density, reducing the likelihood of crimes driven by social and economic pressures.
+
+                </p>
+                <p>
+                    Undergraduate population impacts crime and unemployment patterns: Counties with larger undergraduate populations (represented by bigger circles) tend to have mid-level unemployment rates (4%-8%) and varying crime rates. This suggests that the presence of higher education institutions creates a stabilizing effect on both employment opportunities and social behaviors.
+                </p>
+                <p>
+                    High-unemployment areas often have lower crime rates: Sparse points above 10% unemployment generally show crime rates below 5%, representing rural or economically stagnant regions. These areas, despite economic challenges, may benefit from stronger community cohesion or lower population density, limiting crime opportunities.
+                </p>
+            </div>
+            <div class="image">
+                <img src="./images/unemployment.png" alt="Crime Rate VS Unemployment Rate"
+                style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>
+        </section>
+
         <!-- Tableau Chart -->
         <section>
             <div class="chart-container">
@@ -349,6 +413,20 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Conclusion -->
+        <section class="centered-text">
+            <div class="text">
+                <h2 style="font-size: 36px; font-weight: bold;">Conclusion</h2>
+                <p>
+                    In analyzing the relationship between campus crime and various socioeconomic and political factors, we identified several intriguing patterns. Some findings, such as the correlation between higher undergraduate populations and relatively stable socioeconomic conditions, suggest that education and institutional resources contribute to campus safety. Additionally, the data revealed surprising insights, such as higher campus crime rates in some Republican-leaning states, challenging conventional assumptions about the influence of political leanings on safety. These observations underscore the importance of considering diverse factors—such as local economic conditions, state policies, and demographic distributions—when assessing campus crime.
+                </p>
+                <p>
+                    However, it is important to acknowledge that not all data presented strong or consistent trends as initially expected. For instance, while some correlations, like the inverse relationship between crime rates and unemployment, appeared in certain regions, they were less pronounced in others, highlighting significant variability. This suggests that campus crime is influenced by complex, multifaceted factors that resist simple explanations. Future research should incorporate more granular data and explore additional variables, such as cultural dynamics, crime reporting practices, and community engagement, to provide a more comprehensive understanding of campus safety across the United States.                    
+                </p>
+            </div>
+        </section>    
     </main>
 
     <script>
