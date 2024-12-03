@@ -87,15 +87,14 @@
             box-sizing: border-box; /* 确保 padding 和 margin 不影响宽高 */
         }
 
-        /* Alternating background colors */
-        section:nth-child(odd) {
-            background-color: #2E2E2E;
+        .section-head { 
+            background-color: #4B0000;
             color: #ffffff;
         }
 
-        section:nth-child(even) {
-            background-color: #4B0000;
-            color: #e0e0e0;
+        .content {
+            background-color: #2E2E2E;;
+            color: #ffffff;
         }
 
         /* Tableau chart container */
@@ -128,7 +127,7 @@
         </section>
 
         <!-- Overview -->
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Overview</h2>
                 <p>
@@ -136,7 +135,7 @@
                 </p>
             </div>
         </section>    
-        <section>
+        <section class="section-head">
             <div class="image">
                 <img src="./images/wordcloud.png" alt="Word Cloud">
             </div>
@@ -148,13 +147,13 @@
         </section>
 
         <!-- Change Trend -->
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Yearly Change in Crime Types</h2>
                 <p>While major crime types dominate the overall trends, smaller categories have shown notable shifts. We visualize the <span style="color: #FFDD44; font-weight: bold;">year-over-year differences</span> in crime totals, revealing both alarming and promising trends.</p>
             </div>
         </section>
-        <section>
+        <section class="content">
             <div class="text">
                 <p>Among the most striking observations is the sharp rise in <span style="color: #a3a3a3; font-weight: bold;">Motor Vehicle Theft</span>, which tops the chart with an increase of <span style="text-decoration: underline;">over 4,000</span> cases between 2021 and 2022. This upward trajectory calls for immediate attention to parking lot security and theft deterrence.</p>
                 <p><span style="color: #b79683; font-weight: bold;">Stalking</span> has also seen a significant uptick, requiring stronger protections for victims and better awareness campaigns. Meanwhile, categories like <span style="color: #FFBE7D; font-weight: bold;">Dating Violence</span> and <span style="color: #F28E2B; font-weight: bold;">Burglary</span> show noticeable changes, pointing to opportunities for intervention.</p>
@@ -187,7 +186,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="content">
             <div class="text">
                 <p>Encouragingly, some crimes, such as <span style="color: #499894; font-weight: bold;">Incest</span>, have remained at a <span style="text-decoration: underline;">low baseline</span>. <span style="color: #FADFB2; font-weight: bold;">Rape</span> and <span style="color: #F1CE63; font-weight: bold;">Fondling</span> have shown <span style="text-decoration: underline;">declining patterns</span>, offering a glimmer of hope that education, awareness campaigns, and institutional policies are making an impact.</p>
             </div>
@@ -220,7 +219,7 @@
         </section>
 
         <!-- Transition para -->
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <p>Understanding campus crime trends is just the beginning of addressing safety challenges in educational institutions.</p>
                 <h1>What shapes campus crime patterns?</h1>
@@ -229,11 +228,17 @@
         </section>              
 
 
+        <!-- State Crime & Campus Crime -->
+        <section class="centered-text section-head">
+            <div class="text">
+                <h1>State Crime & Campus Crime</h1>
+                <p>While the campus crime data is informative, analyzing it along with the state crime data could present us with a more comprehensive perspective of the national crime.</p>
+            </div>
+        </section>  
 
         <!-- Campus Crime & State Crime -->
-        <section class="centered-text">
+        <section class="centered-text content">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Campus Crime & State Crime</h2>
                 <p>While <span style="color: rgb(125, 208, 246); font-weight: bold;">Alcohol Offense</span> is the <u>top crime</u> type across campuses, it only takes up a very limited portion of the state crimes. On the other hand, the <u>second-highest crime</u> type on campus is also the dominat offense in state crime, being <span style="color: rgb(227,89,36); font-weight: bold;">Drug Offenses</span>. Compared to the top campus crimes, <span style="color: rgb(217,217,217); font-weight: bold;">violent</span> crime appears to take up a <u>significant portion</u>.</p>    
             </div>
             <div class="image">
@@ -244,9 +249,8 @@
 
 
         <!-- State vs. Campus Crime -->
-        <section class="centered-text">
+        <section class="centered-text content">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">State vs. Campus Crime</h2>
                 <p>
                     Now, if we compare <span style="color: rgb(145, 190, 220); font-weight: bold;">state crimes</span> and 
                     <span style="color: rgb(239, 93, 118); font-weight: bold;">campus crimes</span> side-by-side, we observe that while 
@@ -294,11 +298,19 @@
             </div>
         </section>        
 
-        <!-- University Type -->
-        <section>
+
+        <!-- State Crime & Campus Crime -->
+        <section class="centered-text section-head">
             <div class="text">
-                <h2>Crime Rate Distribution by University Type</h2>
-                <p>Based on the chart data, <u>crime rates vary more among private universities than public ones</u>. The spread of crime rates (interquartile range) is wider for private universities (0.41%) compared to public universities (0.28%).</p>
+                <h1>College Types and Rankings</h1>
+                <p>When choosing a college, students typically prioritize factors like the institution’s type—public or private—and its academic ranking. However, how do these considerations relate to campus crime rates?</p>
+            </div>
+        </section>  
+
+        <!-- University Type -->
+        <section class="content">
+            <div class="text">
+                <p>Based on the chart data, crime rates <u>vary more among private universities</u> than public ones. The spread of crime rates (interquartile range) is wider for private universities (0.41%) compared to public universities (0.28%).</p>
 
                 <p>Also, the <u>median crime rate is <b><span style="color:red;">higher</span></b> for private universities</u> (0.33%) than for public universities (0.22%). <u>Some private universities have very <b><span style="color:red;">high</span></b> crime rates exceeding 1.2% </u>, while public universities have fewer and less severe extreme cases.</p>
             </div>
@@ -346,15 +358,14 @@
         </section>
 
         <!-- School Ranking -->
-        <section>
+        <section class="content">
             <div class="text">
-                <h2>QS 2021 Rankings and Crime Rates</h2>
                 <p>
                     <span style="color: rgb(176, 214, 235); font-weight: bold;">Blue</span> dots represent university rankings decreasing from left to right, and colored lines show crime rates — <span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> indicate lower rates, while <span style="color: rgb(255, 39, 1); font-weight: bold;">red</span> signify higher rates.
                 </p>
 
                 <p>
-                    Among the  <span style="text-decoration: underline;">top 70 QS-ranked</span> universities, Stanford, the University of Michigan, and NC State have <span style="text-decoration: underline;">notably higher crime rates (<span style="color: rgb(255, 39, 1); font-weight: bold;">red</span> lines)</span>. Johns Hopkins, Dartmouth, and Notre Dame also have moderately high rates. Universities ranked  <span style="text-decoration: underline;">beyond 70</span> generally display lower and more <span style="text-decoration: underline;">uniform crime rates</span> (mostly<span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> lines), suggesting  <span style="text-decoration: underline;">better campus safety</span>.
+                    Among the  <span style="text-decoration: underline;">top 70 QS-ranked</span> universities, Stanford, the University of Michigan, and NC State have <span style="text-decoration: underline;">notably higher crime rates (<span style="color: rgb(255, 39, 1); font-weight: bold;">red</span> lines)</span>. Universities ranked  <span style="text-decoration: underline;">beyond 70</span> generally display lower and more <span style="text-decoration: underline;">uniform crime rates</span> (mostly<span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> lines), suggesting  <span style="text-decoration: underline;">better campus safety</span>.
                 </p>
             </div>
             <div class="image">
@@ -401,7 +412,7 @@
         </section>
 
         <!-- Political -->
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Political Climate</h2>
                 <p>
@@ -409,8 +420,8 @@
                 </p>
             </div>
         </section> 
-        <section>
-            <div class="text">
+        <section class="content">
+            <div class="text ">
                 <p>
                     To compare campus crime rates (2020) with state political leanings (based on the 2020 election results), the color shows the clear partisan divide of states (<span style="color: #4E79A7;">Democratic-leaning</span> and <span style="color: #E15759;">Republican-leaning</span>), while the cartogram states are resized based on their average campus crime rates, revealing a shift in proportions. 
                 </p>
@@ -423,7 +434,7 @@
                      style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
             </div>                               
         </section>
-        <section>
+        <section class="content">
             <div class="text">
                 <p>
                     This disproportionate representation in the cartogram also highlights <span style="text-decoration: underline;">a significant contribution</span> from certain Republican-leaning states, most notably <span style="color: #E15759; font-weight: bold;">Texas</span>.
@@ -434,7 +445,7 @@
                      style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
             </div>                               
         </section>
-        <section>
+        <section class="content">
             <div class="image">
                 <div class='tableauPlaceholder' id='viz1733102908711' style='width: 100%; height: 100%;'>
                     <noscript>
@@ -475,10 +486,19 @@
         </section>
 
 
-        <!-- Crime Rate VS Unemployment Rate picture -->
-        <section>
+        <!-- Crime Rate VS Unemployment Rate -->
+        <section class="centered-text section-head">
             <div class="text">
-                <h2>Crime Rate VS Unemployment Rate</h2>
+                <h2 style="font-size: 36px; font-weight: bold;">Crime Rate and Unemployment Rate</h2>
+                <p>
+                    Does higher unemployment mean more crime?
+                </p>
+            </div>
+        </section> 
+
+        <!-- Crime Rate VS Unemployment Rate picture -->
+        <section class="content">
+            <div class="text">
                 <p>
                     Counties with higher employment often show elevated crime rates: Green points cluster in areas with crime rates reaching 10%-15%, likely in urban areas with significant economic activity. This may create opportunities for both legitimate work and increased crime due to population density and resource competition.
                 </p>
@@ -531,7 +551,7 @@
         </section>
         
         <!-- Conclusion -->
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Conclusion</h2>
                 <p>
@@ -544,14 +564,14 @@
             </div>
         </section> 
         
-        <section class="centered-text">
+        <section class="centered-text section-head">
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Now it's time to explore your interested college here.</h2>
             </div>
         </section> 
 
         <!-- Tableau Chart -->
-        <section>
+        <section class="section-head">
             <div class="chart-container">
                 <div class='tableauPlaceholder' id='viz1733091043213' style='position: relative'>
                     <noscript>
@@ -586,7 +606,7 @@
     <script>
         const video = document.getElementById('dynamicVideo');
         let isVideoActive = true; // 控制滚动事件是否影响视频
-        const scrollSpeed = 0.2; // 控制滚动速度，值越小滚动越慢
+        const scrollSpeed = 2.2; // 控制滚动速度，值越小滚动越慢
 
         // 滚轮控制视频播放速度
         window.addEventListener(
