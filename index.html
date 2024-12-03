@@ -163,6 +163,10 @@
             <div class="text">
                 <h2 style="font-size: 36px; font-weight: bold;">Yearly Change in Crime Types</h2>
                 <p>While major crime types dominate the overall trends, smaller categories have shown notable shifts. We visualize the <span style="color: #FFDD44; font-weight: bold;">year-over-year differences</span> in crime totals, revealing both alarming and promising trends.</p>
+                <div class="image">
+                    <img src="./images/YearlyChange.avif" alt="Change Trend"
+                    style="height: 100%; max-height: 800px; display: block; margin: 0 auto;" />
+                </div>
             </div>
         </section>
         <section class="content">
@@ -242,6 +246,9 @@
 
         <!-- State Crime & Campus Crime -->
         <section class="centered-text section-head">
+            <img alt="State Crime & Campus Crime" 
+            src="./images/crimeMap.png" 
+            style="height: 100%; max-height: 800px; display: block; margin: 0 auto;" />
             <div class="text">
                 <h1>State Crime & Campus Crime</h1>
                 <p>While the campus crime data is informative, analyzing it along with the state crime data could present us with a more comprehensive perspective of the national crime.</p>
@@ -255,7 +262,7 @@
             </div>
             <div class="image">
                 <img src="./images/CrimeTypeByStates.jpg" alt="Campus Crime & State Crime"
-                style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+                style="height: 100%; max-height: 400px; display: block; margin: 0 auto;" />
             </div>
         </section>   
 
@@ -311,12 +318,16 @@
         </section>        
 
 
-        <!-- State Crime & Campus Crime -->
+        <!-- College Types and Rankings -->
         <section class="centered-text section-head">
-            <div class="text">
+            <div class="text" style="text-align: center;">
                 <h1>College Types and Rankings</h1>
                 <p>When choosing a college, students typically prioritize factors like the institution’s type—public or private—and its academic ranking. However, how do these considerations relate to campus crime rates?</p>
             </div>
+
+            <img alt="State Crime & Campus Crime" 
+            src="./images/controlnranking.jpg" 
+            style="height: 100%; max-height: 500px; display: block; margin: 0 auto;" />
         </section>  
 
         <!-- University Type -->
@@ -430,6 +441,9 @@
                 <p>
                     The <span style="color: #FFDD44; font-weight: bold;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses. However, we uncover trends that challenge assumptions and highlight regional disparities.
                 </p>
+                <img alt="Political Climate" 
+                src="./images/politics.jpg" 
+                style="height: 100%; max-height: 500px; display: block; margin: 0 auto;" />
             </div>
         </section> 
         <section class="content">
@@ -505,6 +519,9 @@
                 <p>
                     Does higher unemployment mean more crime?
                 </p>
+                <img alt="Crime Rate VS Unemployment Rate" 
+                src="./images/unemployment.jpeg" 
+                style="height: auto;max-height: 800px; display: block; margin: 0 auto;" />
             </div>
         </section> 
 
@@ -618,7 +635,7 @@
     <script>
         const video = document.getElementById('dynamicVideo');
         let isVideoActive = true; // 控制滚动事件是否影响视频
-        const scrollSpeed = 0.2; // 控制滚动速度，值越小滚动越慢
+        const scrollSpeed = 2.2; // 控制滚动速度，值越小滚动越慢
 
         // 滚轮控制视频播放速度
         window.addEventListener(
