@@ -126,6 +126,61 @@
                 border-color: transparent; /* 闪烁效果 */
             }
         }
+
+        .picture-section {
+            position: relative; /* 为内部定位内容设置基础 */
+            height: 100vh; /* 高度为视口高度 */
+            width: 100vw; /* 宽度为视口宽度 */
+            background-size: cover; /* 背景图像覆盖整个容器 */
+            background-position: center; /* 背景居中 */
+            background-repeat: no-repeat; /* 不重复显示背景图 */
+            display: flex; /* 使用 Flexbox 布局 */
+            justify-content: center; /* 水平居中内容 */
+            align-items: center; /* 垂直居中内容 */
+            color: white; /* 确保文字颜色清晰 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 为文字添加阴影 */
+            overflow: hidden; /* 防止内容溢出 */
+            box-sizing: border-box; /* 包括 padding 在内计算宽高 */
+        }
+        
+        .picture-section .text {
+            text-align: center; /* 文本居中 */
+            max-width: 70%; /* 限制宽度 */
+            margin: 0 auto; /* 居中对齐 */
+            z-index: 1; /* 确保文字在背景之上 */
+        }
+
+        .picture-section .text h1 {
+            font-family: 'ScaratickallcapsfreepersonalAl', sans-serif; /* 使用自定义字体 */
+            font-size: 60px; /* 标题字体大小 */
+            line-height: 1.5; /* 行高 */
+            color: rgb(253, 203, 76); /* 统一颜色 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 阴影效果 */
+            margin-bottom: 20px; /* 标题与段落之间的间距 */
+        }
+
+        .picture-section .text p {
+            font-family: Arial, sans-serif; /* 使用 Arial 字体 */
+            font-size: 25px; /* 段落字体大小 */
+            line-height: 1.8; /* 行高 */
+            color: rgb(253, 203, 76); /* 统一颜色 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 阴影效果 */
+            margin: 0; /* 移除默认段落间距 */
+}
+
+        /* 避免文字被背景图片影响，添加背景透明层（可选） */
+        .picture-section .text-bg {
+            background-color: rgba(0, 0, 0, 0.5); /* 黑色半透明背景 */
+            padding: 20px; /* 内边距 */
+            border-radius: 8px; /* 添加圆角 */
+        }
+
+        @font-face {
+            font-family: 'ScaratickallcapsfreepersonalAl';
+            src: url('./fonts/Slytheris\ Bloodie.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -139,14 +194,14 @@
         </section>
 
         <!-- Overview -->
-        <section class="centered-text section-head">
+        <section class="picture-section" style="background-image: url('./images/overview.png');">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Overview</h2>
+                <h1>Overview</h1>
                 <p>
                     Campus safety is a <span style="color: #FFDD44; font-weight: bold;">top priority</span> for institutions, students, and parents alike. By analyzing campus crime data from the past three years, we gain insights into patterns and priorities for creating safer learning environments.
                 </p>
             </div>
-        </section>    
+        </section>  
         <section class="centered-text section-head">
             <div class="image">
                 <img src="./images/wordcloud.png" alt="Word Cloud">
@@ -159,14 +214,14 @@
         </section>
 
         <!-- Change Trend -->
-        <section class="centered-text section-head">
+        <section class="picture-section" style="background-image: url('./images/YearlyChange.png');">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Yearly Change in Crime Types</h2>
-                <p>While major crime types dominate the overall trends, smaller categories have shown notable shifts. We visualize the <span style="color: #FFDD44; font-weight: bold;">year-over-year differences</span> in crime totals, revealing both alarming and promising trends.</p>
-                <div class="image">
-                    <img src="./images/YearlyChange.avif" alt="Change Trend"
-                    style="height: 100%; max-height: 800px; display: block; margin: 0 auto;" />
-                </div>
+                <h1>Yearly Change in Crime Types</h1>
+                <p>
+                    While major crime types dominate the overall trends, smaller categories have shown notable shifts. 
+                    We visualize the <span style="color: #FFDD44; font-weight: bold;">year-over-year differences</span> in crime totals, 
+                    revealing both alarming and promising trends.
+                </p>
             </div>
         </section>
         <section class="content">
@@ -245,15 +300,12 @@
 
 
         <!-- State Crime & Campus Crime -->
-        <section class="centered-text section-head">
-            <img alt="State Crime & Campus Crime" 
-            src="./images/crimeMap.png" 
-            style="height: 100%; max-height: 800px; display: block; margin: 0 auto;" />
+        <section class="picture-section" style="background-image: url('./images/crimeMap.png');">
             <div class="text">
                 <h1>State Crime & Campus Crime</h1>
                 <p>While the campus crime data is informative, analyzing it along with the state crime data could present us with a more comprehensive perspective of the national crime.</p>
             </div>
-        </section>  
+        </section>
 
         <!-- Campus Crime & State Crime -->
         <section class="centered-text content">
@@ -319,16 +371,12 @@
 
 
         <!-- College Types and Rankings -->
-        <section class="centered-text section-head">
-            <div class="text" style="text-align: center;">
+        <section class="picture-section" style="background-image: url('./images/controlranking.png');">
+            <div class="text">
                 <h1>College Types and Rankings</h1>
                 <p>When choosing a college, students typically prioritize factors like the institution’s type—public or private—and its academic ranking. However, how do these considerations relate to campus crime rates?</p>
             </div>
-
-            <img alt="State Crime & Campus Crime" 
-            src="./images/controlnranking.jpg" 
-            style="height: 100%; max-height: 500px; display: block; margin: 0 auto;" />
-        </section>  
+        </section>
 
         <!-- University Type -->
         <section class="content">
@@ -435,17 +483,16 @@
         </section>
 
         <!-- Political -->
-        <section class="centered-text section-head">
+        <section class="picture-section" style="background-image: url('./images/politics.png');">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Political Climate</h2>
+                <h1>Political Climate</h1>
                 <p>
-                    The <span style="color: #FFDD44; font-weight: bold;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses. However, we uncover trends that challenge assumptions and highlight regional disparities.
+                    The <span style="font-weight: bold;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses.
+                    However, we uncover trends that challenge assumptions and highlight regional disparities.
                 </p>
-                <img alt="Political Climate" 
-                src="./images/politics.jpg" 
-                style="height: 100%; max-height: 500px; display: block; margin: 0 auto;" />
             </div>
-        </section> 
+        </section>
+
         <section class="content">
             <div class="text ">
                 <p>
@@ -511,19 +558,12 @@
             </div>
         </section>
 
-
-        <!-- Crime Rate VS Unemployment Rate -->
-        <section class="centered-text section-head">
+        <section class="picture-section" style="background-image: url('./images/unemploymentHead.png');">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Crime Rate and Unemployment Rate</h2>
-                <p>
-                    Does higher unemployment mean more crime?
-                </p>
-                <img alt="Crime Rate VS Unemployment Rate" 
-                src="./images/unemployment.jpeg" 
-                style="height: auto;max-height: 800px; display: block; margin: 0 auto;" />
+                <h1>Crime Rate and Unemployment Rate</h1>
+                <p>Does higher unemployment mean more crime?</p>
             </div>
-        </section> 
+        </section>
 
         <!-- Crime Rate VS Unemployment Rate picture -->
         <section class="content">
