@@ -114,6 +114,18 @@
             height: 100%;
             position: absolute;
         }
+        
+        .typing-effect {
+            display: inline;
+            border-right: 2px solid #fff; /* 光标 */
+            animation: blink 0.7s step-end infinite; /* 光标闪烁 */
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent; /* 闪烁效果 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -564,9 +576,9 @@
             </div>
         </section> 
         
-        <section class="centered-text section-head">
-            <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Now it's time to explore your interested college here.</h2>
+        <section id="dynamic-section" class="centered-text section-head">
+            <div class="text"> 
+                <h2 style="font-size: 36px; font-weight: bold;">Time to explore.</h2>
             </div>
         </section> 
 
@@ -606,7 +618,7 @@
     <script>
         const video = document.getElementById('dynamicVideo');
         let isVideoActive = true; // 控制滚动事件是否影响视频
-        const scrollSpeed = 2.2; // 控制滚动速度，值越小滚动越慢
+        const scrollSpeed = 0.2; // 控制滚动速度，值越小滚动越慢
 
         // 滚轮控制视频播放速度
         window.addEventListener(
@@ -708,6 +720,44 @@
                 window.addEventListener('resize', resizeTableau);
             }
         };
+        function typeText(element, text, speed = 50) {
+            element.textContent = ""; // 清空内容
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i); // 逐字追加
+                    i++;
+                } else {
+                    clearInterval(typingInterval); // 停止动画
+                    element.classList.remove("typing-effect"); // 移除光标效果
+                }
+            }, speed);
+        }
+
+        function observeDynamicTyping() {
+            const target = document.querySelector("#dynamic-section .text h2"); // 精准选择目标 h2
+            if (!target) return; // 如果未找到目标元素，停止执行
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // 当目标元素进入可视区域
+                            const originalText = target.textContent; // 保存原始文本
+                            target.textContent = ""; // 清空内容
+                            target.classList.add("typing-effect"); // 添加光标效果
+                            typeText(target, originalText, 50); // 启动动态打字动画
+                            observer.unobserve(target); // 动画完成后停止观察
+                        }
+                    });
+                },
+                { threshold: 0.5 } // 当目标元素 50% 可见时触发
+            );
+
+            observer.observe(target); // 观察目标元素
+        }
+
+        window.addEventListener("load", observeDynamicTyping);
     </script>
 </body>
 </html>
