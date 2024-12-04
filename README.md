@@ -1,20 +1,32 @@
 # College Crime Data Visualization
 
+This project was created by:
+- **[Wenxi Hu](https://github.com/wenxihuw)**
+- **[Haochen Yang](https://github.com/Blakieee)**
+- **[Zexuan Wei](https://github.com/JasonWei530)**
+- **Shang Yu**
+
+We are students at the **Georgia Institute of Technology**, where this project was developed as part of our exploration into data visualization, storytelling, and campus safety analysis.
+
 ## Visual and Artistic Reference
+This project draws inspiration from the visual and artistic storytelling methods presented in [Crime: The Series](https://www.crimetheseries.com/). The series' emphasis on visually compelling narratives and data-driven insights serves as a foundation for our approach to presenting campus crime data.
 
-The visual style and artistic inspiration for this project are informed by multiple sources that highlight the intersection of crime data visualization and storytelling. Below are the key references:
+## Project Overview
+Campus safety is a priority for students, parents, and institutions alike. Our project uses data visualization to analyze campus crime trends, uncover patterns, and suggest actionable insights for creating safer learning environments. By leveraging visual techniques inspired by cinematic storytelling, we aim to engage audiences while delivering meaningful data-driven narratives.
 
-1. **Crime the Series**  
-   This website features a dynamic blend of modern design, bold typography, and dramatic imagery. The aesthetics of *Crime the Series* inspire the visual language of our project, emphasizing clarity and impact.
+Check out the live project here: [College Crime Data Visualization](https://blakieee.github.io/CollegeCrimeVis/).
 
-2. **Slate: Bryan Kohberger and Criminology**  
-   This article explores the role of criminology in understanding crime, offering insights into how academic perspectives can frame complex crime narratives, which aligns with our analytical approach.
+## Features
+- **Interactive Scrollytelling**: Seamlessly blends narrative elements with data visualizations as users scroll through the page.
+- **Data-Driven Insights**: Analysis of campus crime data from the past three years, focusing on key trends and actionable findings.
+- **Visual Storytelling**: Rich imagery and responsive design to enhance the storytelling experience across devices.
 
-3. **“School-to-prison pipeline” by Rachel Marie-Crane Williams (2011)**  
-   The graphic depiction of systemic issues within schools and their link to the criminal justice system provides a foundation for exploring societal factors in crime visualization.
+## Technologies Used
+- **Visualization Tools**: Tableau and custom data visualizations integrated into the site.
+- **Frontend**: HTML, CSS, and JavaScript.
+- **Design Principles**: Responsive web design inspired by the cinematic techniques from *Crime: The Series*.
 
-4. **Mary Evans Picture Library**  
-   - **Photo Prints and Wall Art: New Map Room at Scotland Yard (1947)**  
-     This iconic image shows detectives marking a map with colored flags to represent different types of crime (yellow for housebreaking, red for burglary, green for murder). It exemplifies early methods of crime visualization, directly inspiring our geographic data representations.
-   - **Media ID**: 23045246  
-   - © Illustrated London News Ltd/Mary Evans
+## Installation and Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Blakieee/CollegeCrimeVis.git
