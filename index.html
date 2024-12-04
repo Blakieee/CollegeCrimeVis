@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Crime Scrollytelling</title>
-    <style>
-        /* 全局样式 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            line-height: 1.8;
-            background-color: #f5f5f5;
-            overflow-x: hidden;
-        }
-
-        /* Scroll Snap container */
-        main {
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            height: 100vh;
-        }
-
-        /* Section styles */
-        section {
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>College Crime Scrollytelling</title>
+      <style>
+         body, html {
+         margin: 0;
+         padding: 0;
+         font-family: Arial, sans-serif;
+         font-size: 20px;
+         line-height: 1.8;
+         background-color: #f5f5f5;
+         overflow-x: hidden;
+         }
+         /* Scroll Snap container */
+         main {
+         scroll-snap-type: y mandatory;
+         overflow-y: scroll;
+         height: 100vh;
+         }
+         /* Section styles */
+         section {
             scroll-snap-align: start;
             display: flex;
             justify-content: space-between;
@@ -32,8 +29,8 @@
             height: 100vh;
             padding: 20px;
             box-sizing: border-box;
-        }
-        .centered-text {
+         }
+         .centered-text {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,788 +39,726 @@
             padding: 20px;
             box-sizing: border-box;
             background-color: #ffffff;
-        }
-
-        .centered-text .text {
+         }
+         .centered-text .text {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        /* 左侧文字 */
-        .text {
+         }
+         .text {
             flex: 1;
             max-width: 45%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding-right: 20px;
-        }
-
-        /* 右侧图片 */
-        .image {
+         }
+         .image {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
-            overflow-y: auto;
-        }
-
-        .image img {
+         overflow-y: auto;
+         }
+         .image img {
             width: 100%;
             max-width: 800px;
             height: auto;
-        }
-        
-        .rankimage {
+         }
+         .rankimage {
             flex: 1;
-            display: block; /* 保持 block 布局 */
-            height: calc(100vh - 40px); /* 确保内容高度减去 margin 的高度 */
+            display: block;
+            height: calc(100vh - 40px);
             overflow-y: auto;
-            margin-top: 20px; /* 添加顶部外边距 */
-            margin-bottom: 20px; /* 添加底部外边距 */
-            padding-top: 20px; /* 保持 padding 确保顶部可见 */
-            padding-bottom: 20px; /* 保持 padding 确保底部可见 */
-            box-sizing: border-box; /* 确保 padding 和 margin 不影响宽高 */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-sizing: border-box;
         }
-
-        .section-head { 
+        .section-head {
             background-color: #4B0000;
             color: #ffffff;
         }
-
         .content {
-            background-color: #2E2E2E;;
+            background-color: #2E2E2E;
             color: #ffffff;
         }
-
-        /* Tableau chart container */
         .chart-container {
             width: 100%;
             height: 100%;
             position: relative;
         }
-
         .tableauPlaceholder {
             width: 100%;
             height: 100%;
         }
-
         .tableauViz {
             width: 100%;
             height: 100%;
             position: absolute;
         }
-        
         .typing-effect {
             display: inline;
-            border-right: 2px solid #fff; /* 光标 */
-            animation: blink 0.7s step-end infinite; /* 光标闪烁 */
+            border-right: 2px solid #fff;
+            animation: blink 0.7s step-end infinite;
         }
-
         @keyframes blink {
             50% {
-                border-color: transparent; /* 闪烁效果 */
+                border-color: transparent;
             }
         }
-
         .picture-section {
-            position: relative; /* 为内部定位内容设置基础 */
-            height: 100vh; /* 高度为视口高度 */
-            width: 100vw; /* 宽度为视口宽度 */
-            background-size: cover; /* 背景图像覆盖整个容器 */
-            background-position: center; /* 背景居中 */
-            background-repeat: no-repeat; /* 不重复显示背景图 */
-            display: flex; /* 使用 Flexbox 布局 */
-            justify-content: center; /* 水平居中内容 */
-            align-items: center; /* 垂直居中内容 */
-            color: white; /* 确保文字颜色清晰 */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 为文字添加阴影 */
-            overflow: hidden; /* 防止内容溢出 */
-            box-sizing: border-box; /* 包括 padding 在内计算宽高 */
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            box-sizing: border-box;
         }
-
         .picture-section .text {
-            text-align: center; /* 文本居中 */
-            max-width: 70%; /* 限制宽度 */
-            margin: 0 auto; /* 居中对齐 */
-            z-index: 1; /* 确保文字在背景之上 */
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto;
+            z-index: 1;
         }
-
         .picture-section .text h1 {
-            font-family: 'ScaratickallcapsfreepersonalAl', sans-serif; /* 使用自定义字体 */
-            font-size: 70px; /* 标题字体大小 */
-            line-height: 1.5; /* 行高 */
-            color: rgb(253, 203, 76); /* 统一颜色 */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 阴影效果 */
-            margin-bottom: 20px; /* 标题与段落之间的间距 */
+            font-family: 'ScaratickallcapsfreepersonalAl', sans-serif;
+            font-size: 70px;
+            line-height: 1.5;
+            color: rgb(253, 203, 76);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
         }
-
         .picture-section .text p {
-            font-family: Arial, sans-serif; /* 使用 Arial 字体 */
-            font-size: 30px; /* 段落字体大小 */
-            line-height: 1.8; /* 行高 */
-            color: rgb(253, 203, 76); /* 统一颜色 */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 阴影效果 */
-            margin: 0; /* 移除默认段落间距 */
-}
-
-        /* 避免文字被背景图片影响，添加背景透明层（可选） */
-        .picture-section .text-bg {
-            background-color: rgba(0, 0, 0, 0.5); /* 黑色半透明背景 */
-            padding: 20px; /* 内边距 */
-            border-radius: 8px; /* 添加圆角 */
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            line-height: 1.8;
+            color: rgb(253, 203, 76);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin: 0;
         }
-
-        @font-face {
+        .picture-section .text-bg {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+        }
+         @font-face {
             font-family: 'ScaratickallcapsfreepersonalAl';
             src: url('./fonts/Slytheris\ Bloodie.woff') format('woff');
             font-weight: normal;
             font-style: normal;
-        }
-    </style>
-</head>
-<body>
-    <main>
-        <!-- 视频页面 -->
-        <section style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: black;">
+         }
+      </style>
+   </head>
+   <body>
+      <main>
+         <!-- video at the start -->
+         <section style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: black;">
             <video id="dynamicVideo" muted loop style="width: 100%; height: 100%; object-fit: cover;" controlslist="nodownload noplaybackrate nofullscreen" disablepictureinpicture>
-                <source src="videos/movie.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+               <source src="videos/movie.mp4" type="video/mp4">
+               Your browser does not support the video tag.
             </video>
-        </section>
-
-        <!-- Overview -->
-        <section class="picture-section" style="background-image: url('./images/overview.png');">
+         </section>
+         <!-- Overview -->
+         <section class="picture-section" style="background-image: url('./images/overview.png');">
             <div class="text">
-                <h1>Overview</h1>
-                <p>
-                    Campus safety is a <span style="font-weight: bold; text-decoration: underline;">top priority</span> for institutions, students, and parents alike. By analyzing campus crime data from the past three years, we gain insights into patterns and priorities for creating safer learning environments.
-                </p>
+               <h1>Overview</h1>
+               <p>
+                  Campus safety is a <span style="font-weight: bold; text-decoration: underline;">top priority</span> for institutions, students, and parents alike. By analyzing campus crime data from the past three years, we gain insights into patterns and priorities for creating safer learning environments.
+               </p>
             </div>
-        </section>  
-        <section class="centered-text section-head">
+         </section>
+         <section class="centered-text section-head">
             <div class="image">
-                <img src="./images/wordcloud.png" alt="Word Cloud">
+               <img src="./images/wordcloud.png" alt="Word Cloud">
             </div>
             <div class="text">
-                <p>
-                    <span style="color: #FF9D9A; font-weight: bold;">Liquor</span> and <span style="color: #B6992D; font-weight: bold;">drug-related</span> offenses <span style="color: #FFDD44; font-weight: bold;"></span>dominate</span> campus crime reports, making up the majority of incidents. This highlights the need for targeted interventions, such as substance abuse education and enforcement of campus policies.
-                </p>
+               <p>
+                  <span style="color: #FF9D9A; font-weight: bold;">Liquor</span> and <span style="color: #B6992D; font-weight: bold;">drug-related</span> offenses <span style="color: #FFDD44; font-weight: bold;"></span>dominate</span> campus crime reports, making up the majority of incidents. This highlights the need for targeted interventions, such as substance abuse education and enforcement of campus policies.
+               </p>
             </div>
-        </section>
-
-        <!-- Change Trend -->
-        <section class="picture-section" style="background-image: url('./images/YearlyChange.png');">
+         </section>
+         <!-- Change Trend -->
+         <section class="picture-section" style="background-image: url('./images/YearlyChange.png');">
             <div class="text">
-                <h1>Yearly Change in Crime Types</h1>
-                <p>
-                    While major crime types dominate the overall trends, smaller categories have shown notable shifts. 
-                    We visualize the <span style="text-decoration: underline; font-weight: bold;">year-over-year differences</span> in crime totals, 
-                    revealing both alarming and promising trends.
-                </p>
+               <h1>Yearly Change in Crime Types</h1>
+               <p>
+                  While major crime types dominate the overall trends, smaller categories have shown notable shifts. 
+                  We visualize the <span style="text-decoration: underline; font-weight: bold;">year-over-year differences</span> in crime totals, 
+                  revealing both alarming and promising trends.
+               </p>
             </div>
-        </section>
-        <section class="content">
+         </section>
+         <section class="content">
             <div class="text">
-                <p>Among the most striking observations is the sharp rise in <span style="color: #a3a3a3; font-weight: bold;">Motor Vehicle Theft</span>, which tops the chart with an increase of <span style="text-decoration: underline;">over 4,000</span> cases between 2021 and 2022. This upward trajectory calls for immediate attention to parking lot security and theft deterrence.</p>
-                <p><span style="color: #b79683; font-weight: bold;">Stalking</span> has also seen a significant uptick, requiring stronger protections for victims and better awareness campaigns. Meanwhile, categories like <span style="color: #FFBE7D; font-weight: bold;">Dating Violence</span> and <span style="color: #F28E2B; font-weight: bold;">Burglary</span> show noticeable changes, pointing to opportunities for intervention.</p>
+               <p>Among the most striking observations is the sharp rise in <span style="color: #a3a3a3; font-weight: bold;">Motor Vehicle Theft</span>, which tops the chart with an increase of <span style="text-decoration: underline;">over 4,000</span> cases between 2021 and 2022. This upward trajectory calls for immediate attention to parking lot security and theft deterrence.</p>
+               <p><span style="color: #b79683; font-weight: bold;">Stalking</span> has also seen a significant uptick, requiring stronger protections for victims and better awareness campaigns. Meanwhile, categories like <span style="color: #FFBE7D; font-weight: bold;">Dating Violence</span> and <span style="color: #F28E2B; font-weight: bold;">Burglary</span> show noticeable changes, pointing to opportunities for intervention.</p>
             </div>
             <div class="image">
-                <div class='tableauPlaceholder' id='viz1733088996295' style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Yearly Change in Crime Types' 
-                                 src='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes/1_rss.png' 
-                                 style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='width: 100%; height: 100%;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='CampusCrimeDistribution/YearlyChangeinCrimeTypes' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                    </object>
-                </div>
+               <div class='tableauPlaceholder' id='viz1733088996295' style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href='#'>
+                     <img alt='Yearly Change in Crime Types' 
+                        src='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes/1_rss.png' 
+                        style='border: none' />
+                     </a>
+                  </noscript>
+                  <object class='tableauViz' style='width: 100%; height: 100%;'>
+                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                     <param name='embed_code_version' value='3' />
+                     <param name='site_root' value='' />
+                     <param name='name' value='CampusCrimeDistribution/YearlyChangeinCrimeTypes' />
+                     <param name='tabs' value='no' />
+                     <param name='toolbar' value='yes' />
+                     <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes/1.png' />
+                     <param name='animate_transition' value='yes' />
+                     <param name='display_static_image' value='yes' />
+                     <param name='display_spinner' value='yes' />
+                     <param name='display_overlay' value='yes' />
+                     <param name='display_count' value='yes' />
+                     <param name='language' value='en-US' />
+                  </object>
+               </div>
             </div>
-        </section>
-
-        <section class="content">
+         </section>
+         <section class="content">
             <div class="text">
-                <p>Encouragingly, some crimes, such as <span style="color: #499894; font-weight: bold;">Incest</span>, have remained at a <span style="text-decoration: underline;">low baseline</span>. <span style="color: #FADFB2; font-weight: bold;">Rape</span> and <span style="color: #F1CE63; font-weight: bold;">Fondling</span> have shown <span style="text-decoration: underline;">declining patterns</span>, offering a glimmer of hope that education, awareness campaigns, and institutional policies are making an impact.</p>
+               <p>Encouragingly, some crimes, such as <span style="color: #499894; font-weight: bold;">Incest</span>, have remained at a <span style="text-decoration: underline;">low baseline</span>. <span style="color: #FADFB2; font-weight: bold;">Rape</span> and <span style="color: #F1CE63; font-weight: bold;">Fondling</span> have shown <span style="text-decoration: underline;">declining patterns</span>, offering a glimmer of hope that education, awareness campaigns, and institutional policies are making an impact.</p>
             </div>
             <div class="image">
-                <div class='tableauPlaceholder' id='viz1733089591669' style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Yearly Change in Crime Type' 
-                                 src='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes1/1_rss.png' 
-                                 style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='width: 100%; height: 100%;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='CampusCrimeDistribution/YearlyChangeinCrimeTypes1' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes1/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                    </object>
-                </div>
+               <div class='tableauPlaceholder' id='viz1733089591669' style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href='#'>
+                     <img alt='Yearly Change in Crime Type' 
+                        src='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes1/1_rss.png' 
+                        style='border: none' />
+                     </a>
+                  </noscript>
+                  <object class='tableauViz' style='width: 100%; height: 100%;'>
+                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                     <param name='embed_code_version' value='3' />
+                     <param name='site_root' value='' />
+                     <param name='name' value='CampusCrimeDistribution/YearlyChangeinCrimeTypes1' />
+                     <param name='tabs' value='no' />
+                     <param name='toolbar' value='yes' />
+                     <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDistribution/YearlyChangeinCrimeTypes1/1.png' />
+                     <param name='animate_transition' value='yes' />
+                     <param name='display_static_image' value='yes' />
+                     <param name='display_spinner' value='yes' />
+                     <param name='display_overlay' value='yes' />
+                     <param name='display_count' value='yes' />
+                     <param name='language' value='en-US' />
+                  </object>
+               </div>
             </div>
-        </section>
-
-        <!-- Transition para -->
-        <section class="centered-text section-head">
+         </section>
+         <!-- Transition para -->
+         <section class="centered-text section-head">
             <div class="text">
-                <p>Understanding campus crime trends is just the beginning of addressing safety challenges in educational institutions.</p>
-                <h1>What shapes campus crime patterns?</h1>
-                <p>Key influences include <span style="font-style: italic; color: rgb(255, 106, 106);">state crime rates</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">school control and rankings</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">political climates</span>, and <span style="font-style: italic; color: rgb(255, 106, 106);">local economic conditions</span>. Examining these factors reveals how broader contexts intersect with campus safety, offering opportunities for targeted solutions.</p>
+               <p>Understanding campus crime trends is just the beginning of addressing safety challenges in educational institutions.</p>
+               <h1>What shapes campus crime patterns?</h1>
+               <p>Key influences include <span style="font-style: italic; color: rgb(255, 106, 106);">state crime rates</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">school control and rankings</span>, <span style="font-style: italic; color: rgb(255, 106, 106);">political climates</span>, and <span style="font-style: italic; color: rgb(255, 106, 106);">local economic conditions</span>. Examining these factors reveals how broader contexts intersect with campus safety, offering opportunities for targeted solutions.</p>
             </div>
-        </section>              
-
-
-        <!-- State Crime & Campus Crime -->
-        <section class="picture-section" style="background-image: url('./images/crimeMap.png');">
+         </section>
+         <!-- State Crime & Campus Crime -->
+         <section class="picture-section" style="background-image: url('./images/crimeMap.png');">
             <div class="text">
-                <h1>State Crime & Campus Crime</h1>
-                <p>While the campus crime data is informative, analyzing it along with the state crime data could present us with a more comprehensive perspective of the national crime.</p>
+               <h1>State Crime & Campus Crime</h1>
+               <p>While the campus crime data is informative, analyzing it along with the state crime data could present us with a more comprehensive perspective of the national crime.</p>
             </div>
-        </section>
-
-        <!-- Campus Crime & State Crime -->
-        <section class="centered-text content">
+         </section>
+         <!-- Campus Crime & State Crime -->
+         <section class="centered-text content">
             <div class="text">
-                <p>While <span style="color: rgb(125, 208, 246); font-weight: bold;">Alcohol Offense</span> is the <u>top crime</u> type across campuses, it only takes up a very limited portion of the state crimes. On the other hand, the <u>second-highest crime</u> type on campus is also the dominat offense in state crime, being <span style="color: rgb(227,89,36); font-weight: bold;">Drug Offenses</span>. Compared to the top campus crimes, <span style="color: rgb(217,217,217); font-weight: bold;">violent</span> crime appears to take up a <u>significant portion</u>.</p>    
+               <p>While <span style="color: rgb(125, 208, 246); font-weight: bold;">Alcohol Offense</span> is the <u>top crime</u> type across campuses, it only takes up a very limited portion of the state crimes. On the other hand, the <u>second-highest crime</u> type on campus is also the dominat offense in state crime, being <span style="color: rgb(227,89,36); font-weight: bold;">Drug Offenses</span>. Compared to the top campus crimes, <span style="color: rgb(217,217,217); font-weight: bold;">violent</span> crime appears to take up a <u>significant portion</u>.</p>
             </div>
             <div class="image">
-                <img src="./images/CrimeTypeByStates.jpg" alt="Campus Crime & State Crime"
-                style="height: 100%; max-height: 400px; display: block; margin: 0 auto;" />
+               <img src="./images/CrimeTypeByStates.jpg" alt="Campus Crime & State Crime"
+                  style="height: 100%; max-height: 400px; display: block; margin: 0 auto;" />
             </div>
-        </section>   
-
-
-        <!-- State vs. Campus Crime -->
-        <section class="centered-text content">
+         </section>
+         <!-- State vs. Campus Crime -->
+         <section class="centered-text content">
             <div class="text">
-                <p>
-                    Now, if we compare <span style="color: rgb(145, 190, 220); font-weight: bold;">state crimes</span> and 
-                    <span style="color: rgb(239, 93, 118); font-weight: bold;">campus crimes</span> side-by-side, we observe that while 
-                    <span style="color: rgb(145, 190, 220); font-weight: bold;">New Mexico</span> and 
-                    <span style="color: rgb(145, 190, 220); font-weight: bold;">Alaska</span> have the 
-                    <u>leading state crime rate</u> reported across the nation, the <u>highest campus crime concentration</u> actually occurs in 
-                    <span style="color: rgb(239, 93, 118); font-weight: bold;">Colorado (Boulder)</span> and 
-                    <span style="color: rgb(239, 93, 118); font-weight: bold;">Indiana (West Lafayette and Bloomington)</span>. We would assume that the 
-                    <u>density of state crime aligns with that of the campus crime</u>, and this brings us to think about the issue of data humanism: Whether or not the campus crimes are being reported truthfully.
-                </p>  
+               <p>
+                  Now, if we compare <span style="color: rgb(145, 190, 220); font-weight: bold;">state crimes</span> and 
+                  <span style="color: rgb(239, 93, 118); font-weight: bold;">campus crimes</span> side-by-side, we observe that while 
+                  <span style="color: rgb(145, 190, 220); font-weight: bold;">New Mexico</span> and 
+                  <span style="color: rgb(145, 190, 220); font-weight: bold;">Alaska</span> have the 
+                  <u>leading state crime rate</u> reported across the nation, the <u>highest campus crime concentration</u> actually occurs in 
+                  <span style="color: rgb(239, 93, 118); font-weight: bold;">Colorado (Boulder)</span> and 
+                  <span style="color: rgb(239, 93, 118); font-weight: bold;">Indiana (West Lafayette and Bloomington)</span>. We would assume that the 
+                  <u>density of state crime aligns with that of the campus crime</u>, and this brings us to think about the issue of data humanism: Whether or not the campus crimes are being reported truthfully.
+               </p>
             </div>
             <div class="image">
-                <div class="tableauPlaceholder" id="viz1733165803336" style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href=" ">
-                            <img alt="combined_campus_state (3)" 
-                                 src="https://public.tableau.com/static/images/F9/F9W5G46XQ/1_rss.png" 
-                                 style="border: none;" />
-                        </a>
-                    </noscript>
-                    <object class="tableauViz" style='width: 100%; height: 100%;'>
-                        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                        <param name="embed_code_version" value="3" />
-                        <param name="path" value="shared/F9W5G46XQ" />
-                        <param name="toolbar" value="yes" />
-                        <param name="static_image" value="https://public.tableau.com/static/images/F9/F9W5G46XQ/1.png" />
-                        <param name="animate_transition" value="yes" />
-                        <param name="display_static_image" value="yes" />
-                        <param name="display_spinner" value="yes" />
-                        <param name="display_overlay" value="yes" />
-                        <param name="display_count" value="yes" />
-                        <param name="language" value="en-US" />
-                        <param name="filter" value="publish=yes" />
-                    </object>
-                </div>
-                <script type="text/javascript">
-                    var divElement = document.getElementById('viz1733165803336');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    vizElement.style.width = '100%';
-                    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
+               <div class="tableauPlaceholder" id="viz1733165803336" style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href=" ">
+                     <img alt="combined_campus_state (3)" 
+                        src="https://public.tableau.com/static/images/F9/F9W5G46XQ/1_rss.png" 
+                        style="border: none;" />
+                     </a>
+                  </noscript>
+                  <object class="tableauViz" style='width: 100%; height: 100%;'>
+                     <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                     <param name="embed_code_version" value="3" />
+                     <param name="path" value="shared/F9W5G46XQ" />
+                     <param name="toolbar" value="yes" />
+                     <param name="static_image" value="https://public.tableau.com/static/images/F9/F9W5G46XQ/1.png" />
+                     <param name="animate_transition" value="yes" />
+                     <param name="display_static_image" value="yes" />
+                     <param name="display_spinner" value="yes" />
+                     <param name="display_overlay" value="yes" />
+                     <param name="display_count" value="yes" />
+                     <param name="language" value="en-US" />
+                     <param name="filter" value="publish=yes" />
+                  </object>
+               </div>
+               <script type="text/javascript">
+                  var divElement = document.getElementById('viz1733165803336');
+                  var vizElement = divElement.getElementsByTagName('object')[0];
+                  vizElement.style.width = '100%';
+                  vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+                  var scriptElement = document.createElement('script');
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+               </script>
             </div>
-        </section>        
-
-
-        <!-- College Types and Rankings -->
-        <section class="picture-section" style="background-image: url('./images/controlranking.png');">
+         </section>
+         <!-- College Types and Rankings -->
+         <section class="picture-section" style="background-image: url('./images/controlranking.png');">
             <div class="text">
-                <h1>College Types and Rankings</h1>
-                <p>When choosing a college, students typically prioritize factors like the institution’s type—public or private—and its academic ranking. However, how do these considerations relate to campus crime rates?</p>
+               <h1>College Types and Rankings</h1>
+               <p>When choosing a college, students typically prioritize factors like the institution’s type—public or private—and its academic ranking. However, how do these considerations relate to campus crime rates?</p>
             </div>
-        </section>
-
-        <!-- University Type -->
-        <section class="content">
+         </section>
+         <!-- University Type -->
+         <section class="content">
             <div class="text">
-                <p>Based on the chart data, crime rates <u>vary more among private universities</u> than public ones. The spread of crime rates (interquartile range) is wider for private universities (0.41%) compared to public universities (0.28%).</p>
-
-                <p>Also, the <u>median crime rate is <b><span style="color:rgb(255, 106, 106);">higher</span></b> for private universities</u> (0.33%) than for public universities (0.22%). Mike Chapman’s article, “Perceptions About Public v. Private College Crime Rates Aren’t Accurate,” reveals that public schools don’t necessarily have higher crime rates than private schools when adjusted for enrollment size. <u>Per capita</u> calculations show <u>private colleges <span style="color:rgb(255, 106, 106);">exceed</span> public</u> institutions in crime rates, challenging common assumptions. </p>
+               <p>Based on the chart data, crime rates <u>vary more among private universities</u> than public ones. The spread of crime rates (interquartile range) is wider for private universities (0.41%) compared to public universities (0.28%).</p>
+               <p>Also, the <u>median crime rate is <b><span style="color:rgb(255, 106, 106);">higher</span></b> for private universities</u> (0.33%) than for public universities (0.22%). Mike Chapman’s article, “Perceptions About Public v. Private College Crime Rates Aren’t Accurate,” reveals that public schools don’t necessarily have higher crime rates than private schools when adjusted for enrollment size. <u>Per capita</u> calculations show <u>private colleges <span style="color:rgb(255, 106, 106);">exceed</span> public</u> institutions in crime rates, challenging common assumptions. </p>
             </div>
             <div class="image" >
-                <div class="tableauPlaceholder" id="viz1733113657269"  style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href="#">
-                            <img alt="Dashboard 2" src="https://public.tableau.com/static/images/bo/book4_17331132680720/Dashboard2/1_rss.png" style="border: none;" />
-                        </a>
-                    </noscript>
-                    <object class="tableauViz" style='width: 100%; height: 100%;'>
-                        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                        <param name="embed_code_version" value="3" />
-                        <param name="site_root" value="" />
-                        <param name="name" value="book4_17331132680720/Dashboard2" />
-                        <param name="tabs" value="no" />
-                        <param name="toolbar" value="yes" />
-                        <param name="static_image" value="https://public.tableau.com/static/images/bo/book4_17331132680720/Dashboard2/1.png" />
-                        <param name="animate_transition" value="yes" />
-                        <param name="display_static_image" value="yes" />
-                        <param name="display_spinner" value="yes" />
-                        <param name="display_overlay" value="yes" />
-                        <param name="display_count" value="yes" />
-                        <param name="language" value="en-US" />
-                    </object>
-                </div>
-                <script type="text/javascript">
-                    var divElement = document.getElementById('viz1733113657269');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    if (divElement.offsetWidth > 800) {
-                        vizElement.style.width = '1000px';
-                        vizElement.style.height = '827px';
-                    } else if (divElement.offsetWidth > 500) {
-                        vizElement.style.width = '1000px';
-                        vizElement.style.height = '827px';
-                    } else {
-                        vizElement.style.width = '100%';
-                        vizElement.style.height = '727px';
-                    }
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
+               <div class="tableauPlaceholder" id="viz1733113657269"  style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href="#">
+                     <img alt="Dashboard 2" src="https://public.tableau.com/static/images/bo/book4_17331132680720/Dashboard2/1_rss.png" style="border: none;" />
+                     </a>
+                  </noscript>
+                  <object class="tableauViz" style='width: 100%; height: 100%;'>
+                     <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                     <param name="embed_code_version" value="3" />
+                     <param name="site_root" value="" />
+                     <param name="name" value="book4_17331132680720/Dashboard2" />
+                     <param name="tabs" value="no" />
+                     <param name="toolbar" value="yes" />
+                     <param name="static_image" value="https://public.tableau.com/static/images/bo/book4_17331132680720/Dashboard2/1.png" />
+                     <param name="animate_transition" value="yes" />
+                     <param name="display_static_image" value="yes" />
+                     <param name="display_spinner" value="yes" />
+                     <param name="display_overlay" value="yes" />
+                     <param name="display_count" value="yes" />
+                     <param name="language" value="en-US" />
+                  </object>
+               </div>
+               <script type="text/javascript">
+                  var divElement = document.getElementById('viz1733113657269');
+                  var vizElement = divElement.getElementsByTagName('object')[0];
+                  if (divElement.offsetWidth > 800) {
+                      vizElement.style.width = '1000px';
+                      vizElement.style.height = '827px';
+                  } else if (divElement.offsetWidth > 500) {
+                      vizElement.style.width = '1000px';
+                      vizElement.style.height = '827px';
+                  } else {
+                      vizElement.style.width = '100%';
+                      vizElement.style.height = '727px';
+                  }
+                  var scriptElement = document.createElement('script');
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+               </script>
             </div>
-        </section>
-
-        <!-- School Ranking -->
-        <section class="content">
+         </section>
+         <!-- School Ranking -->
+         <section class="content">
             <div class="text">
-                <p>
-                    <span style="color: rgb(176, 214, 235); font-weight: bold;">Blue</span> dots represent university rankings decreasing from left to right, and colored lines show crime rates — <span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> indicate lower rates, while <span style="color: rgb(255, 106, 106); font-weight: bold;">red</span> signify higher rates.
-                </p>
-
-                <p>
-                    Among the  <span style="text-decoration: underline;">top 70 QS-ranked</span> universities, Stanford, the University of Michigan, and NC State have <span style="text-decoration: underline;">notably higher crime rates (<span style="color: rgb(255, 106, 106); font-weight: bold;">red</span> lines)</span>. Universities ranked  <span style="text-decoration: underline;">beyond 70</span> generally display lower and more <span style="text-decoration: underline;">uniform crime rates</span> (mostly<span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> lines), suggesting  <span style="text-decoration: underline;">better campus safety</span>.
-                </p>
+               <p>
+                  <span style="color: rgb(176, 214, 235); font-weight: bold;">Blue</span> dots represent university rankings decreasing from left to right, and colored lines show crime rates — <span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> indicate lower rates, while <span style="color: rgb(255, 106, 106); font-weight: bold;">red</span> signify higher rates.
+               </p>
+               <p>
+                  Among the  <span style="text-decoration: underline;">top 70 QS-ranked</span> universities, Stanford, the University of Michigan, and NC State have <span style="text-decoration: underline;">notably higher crime rates (<span style="color: rgb(255, 106, 106); font-weight: bold;">red</span> lines)</span>. Universities ranked  <span style="text-decoration: underline;">beyond 70</span> generally display lower and more <span style="text-decoration: underline;">uniform crime rates</span> (mostly<span style="color: rgb(218, 212, 210); font-weight: bold;">grey</span> lines), suggesting  <span style="text-decoration: underline;">better campus safety</span>.
+               </p>
             </div>
             <div class="image">
-                <div class="tableauPlaceholder" id="viz1733113767355" style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href="#">
-                            <img alt="Dashboard 1" src="https://public.tableau.com/static/images/bo/book3_17331126860080/Dashboard1/1_rss.png" style="border: none;" />
-                        </a>
-                    </noscript>
-                    <object class="tableauViz" style='width: 100%; height: 100%;'>
-                        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                        <param name="embed_code_version" value="3" />
-                        <param name="site_root" value="" />
-                        <param name="name" value="book3_17331126860080/Dashboard1" />
-                        <param name="tabs" value="no" />
-                        <param name="toolbar" value="yes" />
-                        <param name="static_image" value="https://public.tableau.com/static/images/bo/book3_17331126860080/Dashboard1/1.png" />
-                        <param name="animate_transition" value="yes" />
-                        <param name="display_static_image" value="yes" />
-                        <param name="display_spinner" value="yes" />
-                        <param name="display_overlay" value="yes" />
-                        <param name="display_count" value="yes" />
-                        <param name="language" value="en-US" />
-                    </object>
-                </div>
-                <script type="text/javascript">
-                    var divElement = document.getElementById('viz1733113767355');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    if (divElement.offsetWidth > 800) {
-                        vizElement.style.width = '1000px';
-                        vizElement.style.height = '827px';
-                    } else if (divElement.offsetWidth > 500) {
-                        vizElement.style.width = '1000px';
-                        vizElement.style.height = '827px';
-                    } else {
-                        vizElement.style.width = '100%';
-                        vizElement.style.height = '727px';
-                    }
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
+               <div class="tableauPlaceholder" id="viz1733113767355" style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href="#">
+                     <img alt="Dashboard 1" src="https://public.tableau.com/static/images/bo/book3_17331126860080/Dashboard1/1_rss.png" style="border: none;" />
+                     </a>
+                  </noscript>
+                  <object class="tableauViz" style='width: 100%; height: 100%;'>
+                     <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                     <param name="embed_code_version" value="3" />
+                     <param name="site_root" value="" />
+                     <param name="name" value="book3_17331126860080/Dashboard1" />
+                     <param name="tabs" value="no" />
+                     <param name="toolbar" value="yes" />
+                     <param name="static_image" value="https://public.tableau.com/static/images/bo/book3_17331126860080/Dashboard1/1.png" />
+                     <param name="animate_transition" value="yes" />
+                     <param name="display_static_image" value="yes" />
+                     <param name="display_spinner" value="yes" />
+                     <param name="display_overlay" value="yes" />
+                     <param name="display_count" value="yes" />
+                     <param name="language" value="en-US" />
+                  </object>
+               </div>
+               <script type="text/javascript">
+                  var divElement = document.getElementById('viz1733113767355');
+                  var vizElement = divElement.getElementsByTagName('object')[0];
+                  if (divElement.offsetWidth > 800) {
+                      vizElement.style.width = '1000px';
+                      vizElement.style.height = '827px';
+                  } else if (divElement.offsetWidth > 500) {
+                      vizElement.style.width = '1000px';
+                      vizElement.style.height = '827px';
+                  } else {
+                      vizElement.style.width = '100%';
+                      vizElement.style.height = '727px';
+                  }
+                  var scriptElement = document.createElement('script');
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+               </script>
             </div>
-        </section>
-
-        <!-- Political -->
-        <section class="picture-section" style="background-image: url('./images/politics.png');">
+         </section>
+         <!-- Political -->
+         <section class="picture-section" style="background-image: url('./images/politics.png');">
             <div class="text">
-                <h1>Political Climate</h1>
-                <p>
-                    The <span style="font-weight: bold; text-decoration: underline;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses.
-                    However, we uncover trends that challenge assumptions and highlight regional disparities.
-                </p>
+               <h1>Political Climate</h1>
+               <p>
+                  The <span style="font-weight: bold; text-decoration: underline;">common belief</span> that liberal areas inherently have higher crime rates often extends to campuses.
+                  However, we uncover trends that challenge assumptions and highlight regional disparities.
+               </p>
             </div>
-        </section>
-
-        <section class="content">
+         </section>
+         <section class="content">
             <div class="text ">
-                <p>
-                    To compare campus crime rates (2020) with state political leanings (based on the 2020 election results), the color shows the clear partisan divide of states (<span style="color: #4E79A7;">Democratic-leaning</span> and <span style="color: #E15759;">Republican-leaning</span>), while the cartogram states are resized based on their average campus crime rates, revealing a shift in proportions. 
-                </p>
-                <p>
-                    Republican-leaning states account for <span style="color: #E15759; font-weight: bold;">56.97%</span> of the total adjusted area, compared to <span style="color: #4E79A7; font-weight: bold;">43.03%</span> for Democratic-leaning states. This suggests that campuses in Republican-dominated states experience proportionally higher average crime rates, <span style="font-weight: bold; text-decoration: underline;">challenging the common narrative</span> associating liberal areas with higher crime.
-                </p>
+               <p>
+                  To compare campus crime rates (2020) with state political leanings (based on the 2020 election results), the color shows the clear partisan divide of states (<span style="color: #4E79A7;">Democratic-leaning</span> and <span style="color: #E15759;">Republican-leaning</span>), while the cartogram states are resized based on their average campus crime rates, revealing a shift in proportions. 
+               </p>
+               <p>
+                  Republican-leaning states account for <span style="color: #E15759; font-weight: bold;">56.97%</span> of the total adjusted area, compared to <span style="color: #4E79A7; font-weight: bold;">43.03%</span> for Democratic-leaning states. This suggests that campuses in Republican-dominated states experience proportionally higher average crime rates, <span style="font-weight: bold; text-decoration: underline;">challenging the common narrative</span> associating liberal areas with higher crime.
+               </p>
             </div>
             <div class="image" style="text-align: center;">
-                <img src="./images/cartogram2.png" alt="Cartogram map" 
-                     style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
-            </div>                               
-        </section>
-        <section class="content">
+               <img src="./images/cartogram2.png" alt="Cartogram map" 
+                  style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>
+         </section>
+         <section class="content">
             <div class="text">
-                <p>
-                    This disproportionate representation in the cartogram also highlights <span style="text-decoration: underline;">a significant contribution</span> from certain Republican-leaning states, most notably <span style="color: #E15759; font-weight: bold;">Texas</span>.
-                </p>
+               <p>
+                  This disproportionate representation in the cartogram also highlights <span style="text-decoration: underline;">a significant contribution</span> from certain Republican-leaning states, most notably <span style="color: #E15759; font-weight: bold;">Texas</span>.
+               </p>
             </div>
             <div class="image" style="text-align: center;">
-                <img src="./images/cartogram-texas.png" alt="Cartogram map highlighting Texas" 
-                     style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
-            </div>                               
-        </section>
-        <section class="content">
+               <img src="./images/cartogram-texas.png" alt="Cartogram map highlighting Texas" 
+                  style="max-width: 80%; max-height: 85vh; object-fit: contain; display: block; margin: 0 auto;" />
+            </div>
+         </section>
+         <section class="content">
             <div class="image">
-                <div class='tableauPlaceholder' id='viz1733102908711' style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Average Campus Crime Rate vs. State Political Tendency' 
-                                 src='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1_rss.png' 
-                                 style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='width: 100%; height: 100%;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='Jitterstackedbarchartpolitical/Bar2' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                    </object>
-                </div>
+               <div class='tableauPlaceholder' id='viz1733102908711' style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href='#'>
+                     <img alt='Average Campus Crime Rate vs. State Political Tendency' 
+                        src='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1_rss.png' 
+                        style='border: none' />
+                     </a>
+                  </noscript>
+                  <object class='tableauViz' style='width: 100%; height: 100%;'>
+                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                     <param name='embed_code_version' value='3' />
+                     <param name='site_root' value='' />
+                     <param name='name' value='Jitterstackedbarchartpolitical/Bar2' />
+                     <param name='tabs' value='no' />
+                     <param name='toolbar' value='yes' />
+                     <param name='static_image' value='https://public.tableau.com/static/images/Ji/Jitterstackedbarchartpolitical/Bar2/1.png' />
+                     <param name='animate_transition' value='yes' />
+                     <param name='display_static_image' value='yes' />
+                     <param name='display_spinner' value='yes' />
+                     <param name='display_overlay' value='yes' />
+                     <param name='display_count' value='yes' />
+                     <param name='language' value='en-US' />
+                  </object>
+               </div>
             </div>
             <div class="text">
-                <p>
-                    As the largest outlier, <span style="text-decoration: underline;">Texas</span> alone drives much of this imbalance, 
-                    with an average campus crime rate of <span style="color: #FFDD44; font-weight: bold;">19.83%</span>—a figure that far exceeds 
-                    the rates observed in both Republican and Democratic-leaning states, which generally remain below <span style="color: #FFDD44; font-weight: bold;">8.5%</span>.
-                </p>
-                <p>
-                    Such a stark contrast invites deeper scrutiny into the unique factors at play in Texas, 
-                    including its extensive campus networks, the influence of statewide policies, and potential disparities in crime reporting practices.
-                </p>
+               <p>
+                  As the largest outlier, <span style="text-decoration: underline;">Texas</span> alone drives much of this imbalance, 
+                  with an average campus crime rate of <span style="color: #FFDD44; font-weight: bold;">19.83%</span>—a figure that far exceeds 
+                  the rates observed in both Republican and Democratic-leaning states, which generally remain below <span style="color: #FFDD44; font-weight: bold;">8.5%</span>.
+               </p>
+               <p>
+                  Such a stark contrast invites deeper scrutiny into the unique factors at play in Texas, 
+                  including its extensive campus networks, the influence of statewide policies, and potential disparities in crime reporting practices.
+               </p>
             </div>
-        </section>
-
-        <section class="picture-section" style="background-image: url('./images/unemploymentHead.png');">
+         </section>
+         <section class="picture-section" style="background-image: url('./images/unemploymentHead.png');">
             <div class="text">
-                <h1>Unemployment Rate</h1>
-                <p>Does higher unemployment mean more campus crimes?</p>
+               <h1>Unemployment Rate</h1>
+               <p>Does higher unemployment mean more campus crimes?</p>
             </div>
-        </section>
-
-        <!-- Crime Rate VS Unemployment Rate picture -->
-        <section class="content">
+         </section>
+         <!-- Crime Rate VS Unemployment Rate picture -->
+         <section class="content">
             <div class="text">
-                <p>
-                    <span style="color: #FFDD44; font-weight: bold; text-decoration: underline;">As unemployment rises, campus crime rates fall.</span> This is most evident in areas with unemployment above 10%, where crime consistently stays below 5%. Why might this happen?
-                </p>
-                <p>
-                    One possibility is <span style="color: #FFDD44; font-weight: bold; ">underreporting</span>—colleges in high-unemployment areas may 
-                    lack resources or fear reputational harm, leading to fewer crimes being logged. Another factor could 
-                    be <span style="color: #FFDD44; font-weight: bold;">campus specific dynamics</span>: despite higher unemployment, 
-                    these areas show large absolute employment numbers, suggesting active communities. High student engagement or other local factors 
-                    may influence crime rates. These insights suggest the trend may reflect reporting practices and campus dynamics 
-                    rather than a direct link between unemployment and crime.
-                </p>
-
-
+               <p>
+                  <span style="color: #FFDD44; font-weight: bold; text-decoration: underline;">As unemployment rises, campus crime rates fall.</span> This is most evident in areas with unemployment above 10%, where crime consistently stays below 5%. Why might this happen?
+               </p>
+               <p>
+                  One possibility is <span style="color: #FFDD44; font-weight: bold; ">underreporting</span>—colleges in high-unemployment areas may 
+                  lack resources or fear reputational harm, leading to fewer crimes being logged. Another factor could 
+                  be <span style="color: #FFDD44; font-weight: bold;">campus specific dynamics</span>: despite higher unemployment, 
+                  these areas show large absolute employment numbers, suggesting active communities. High student engagement or other local factors 
+                  may influence crime rates. These insights suggest the trend may reflect reporting practices and campus dynamics 
+                  rather than a direct link between unemployment and crime.
+               </p>
             </div>
             <div class="image">
-                <div class='tableauPlaceholder' id='viz1733152588208' style='width: 100%; height: 100%;'>
-                    <noscript>
-                        <a href=' '>
-                            <img alt='Crime Rate VS Unemployment Rate' 
-                                    src='https://public.tableau.com/static/images/so/somesheets/Sheet1/1_rss.png' 
-                                    style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='width: 100%; height: 100%;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='somesheets/Sheet1' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/so/somesheets/Sheet1/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
-                </div>
-                
-                <script type='text/javascript'>
-                    var divElement = document.getElementById('viz1733152588208');
-                    if (divElement) {
-                        var vizElement = divElement.getElementsByTagName('object')[0];
-                        vizElement.style.width = '100%';
-                        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                
-                        var scriptElement = document.createElement('script');
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                    }
-                </script>                
+               <div class='tableauPlaceholder' id='viz1733152588208' style='width: 100%; height: 100%;'>
+                  <noscript>
+                     <a href=' '>
+                     <img alt='Crime Rate VS Unemployment Rate' 
+                        src='https://public.tableau.com/static/images/so/somesheets/Sheet1/1_rss.png' 
+                        style='border: none' />
+                     </a>
+                  </noscript>
+                  <object class='tableauViz' style='width: 100%; height: 100%;'>
+                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                     <param name='embed_code_version' value='3' />
+                     <param name='site_root' value='' />
+                     <param name='name' value='somesheets/Sheet1' />
+                     <param name='tabs' value='no' />
+                     <param name='toolbar' value='yes' />
+                     <param name='static_image' value='https://public.tableau.com/static/images/so/somesheets/Sheet1/1.png' />
+                     <param name='animate_transition' value='yes' />
+                     <param name='display_static_image' value='yes' />
+                     <param name='display_spinner' value='yes' />
+                     <param name='display_overlay' value='yes' />
+                     <param name='display_count' value='yes' />
+                     <param name='language' value='en-US' />
+                     <param name='filter' value='publish=yes' />
+                  </object>
+               </div>
+               <script type='text/javascript'>
+                  var divElement = document.getElementById('viz1733152588208');
+                  if (divElement) {
+                      var vizElement = divElement.getElementsByTagName('object')[0];
+                      vizElement.style.width = '100%';
+                      vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+                  
+                      var scriptElement = document.createElement('script');
+                      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                  }
+               </script>                
             </div>
-        </section>
-        
-        <!-- Conclusion -->
-        <section class="centered-text section-head">
+         </section>
+         <!-- Conclusion -->
+         <section class="centered-text section-head">
             <div class="text">
-                <h2 style="font-size: 36px; font-weight: bold;">Conclusion</h2>
-                <p>
-                    Campus crime is a complex issue shaped by <u><span style="font-style: italic">regional, institutional, political, and socioeconomic </span>
-                    </u>factors. Our analysis revealed surprising patterns, 
-                    such as higher crime variability at private universities and unexpected links to political and economic contexts.
-                </p>
-                <p>
-                    These findings raise questions about the <u>transparency and truthfulness</u> of crime reporting, emphasizing 
-                    the need for ethical practices grounded in <span style="color: #FFDD44; font-weight: bold;">data humanism</span>. 
-                    To create safer academic environments, <span style="color: #FFDD44; font-weight: bold;">targeted measures</span> 
-                    and <span style="color: #FFDD44; font-weight: bold;">truthful reporting</span> must be prioritized.
-                </p>                
+               <h2 style="font-size: 36px; font-weight: bold;">Conclusion</h2>
+               <p>
+                  Campus crime is a complex issue shaped by <u><span style="font-style: italic">regional, institutional, political, and socioeconomic </span>
+                  </u>factors. Our analysis revealed surprising patterns, 
+                  such as higher crime variability at private universities and unexpected links to political and economic contexts.
+               </p>
+               <p>
+                  These findings raise questions about the <u>transparency and truthfulness</u> of crime reporting, emphasizing 
+                  the need for ethical practices grounded in <span style="color: #FFDD44; font-weight: bold;">data humanism</span>. 
+                  To create safer academic environments, <span style="color: #FFDD44; font-weight: bold;">targeted measures</span> 
+                  and <span style="color: #FFDD44; font-weight: bold;">truthful reporting</span> must be prioritized.
+               </p>
             </div>
-        </section> 
-        
-        <section id="dynamic-section" class="centered-text section-head">
-            <div class="text"> 
-                <h2 style="font-size: 36px; font-weight: bold;">Time to explore.</h2>
+         </section>
+         <section id="dynamic-section" class="centered-text section-head">
+            <div class="text">
+               <h2 style="font-size: 36px; font-weight: bold;">Time to explore.</h2>
             </div>
-        </section> 
-
-        <!-- Tableau Chart -->
-        <section class="section-head">
+         </section>
+         <!-- Tableau Chart -->
+         <section class="section-head">
             <div class="chart-container">
-                <div class='tableauPlaceholder' id='viz1733091043213' style='position: relative'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Dashboard 1' 
-                                 src='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1_rss.png' 
-                                 style='border: none' />
-                        </a>
-                    </noscript>
-                    <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='CampusCrimeDashboard_17330326085360/Dashboard1' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='ignore_sticky_session' value='yes' />
-                    </object>
-                </div>
+               <div class='tableauPlaceholder' id='viz1733091043213' style='position: relative'>
+                  <noscript>
+                     <a href='#'>
+                     <img alt='Dashboard 1' 
+                        src='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1_rss.png' 
+                        style='border: none' />
+                     </a>
+                  </noscript>
+                  <object class='tableauViz' style='display:none;'>
+                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                     <param name='embed_code_version' value='3' />
+                     <param name='site_root' value='' />
+                     <param name='name' value='CampusCrimeDashboard_17330326085360/Dashboard1' />
+                     <param name='tabs' value='no' />
+                     <param name='toolbar' value='yes' />
+                     <param name='static_image' value='https://public.tableau.com/static/images/Ca/CampusCrimeDashboard_17330326085360/Dashboard1/1.png' />
+                     <param name='animate_transition' value='yes' />
+                     <param name='display_static_image' value='yes' />
+                     <param name='display_spinner' value='yes' />
+                     <param name='display_overlay' value='yes' />
+                     <param name='display_count' value='yes' />
+                     <param name='language' value='en-US' />
+                     <param name='ignore_sticky_session' value='yes' />
+                  </object>
+               </div>
             </div>
-        </section>
-   
-    </main>
-
-    <script>
-        const video = document.getElementById('dynamicVideo');
-        let isVideoActive = true; // 控制滚动事件是否影响视频
-        const scrollSpeed = 0.2; // 控制滚动速度，值越小滚动越慢
-
-        // 滚轮控制视频播放速度
-        window.addEventListener(
-            'wheel',
-            (event) => {
-                if (isVideoActive) {
-                    const delta = event.deltaY; // 滚动方向和距离
-                    if (delta > 0) {
-                        // 向下滚动，视频向前播放
-                        video.currentTime = Math.min(video.currentTime + scrollSpeed, video.duration);
-                    } else {
-                        // 向上滚动，视频倒退
-                        video.currentTime = Math.max(video.currentTime - scrollSpeed, 0);
-                    }
-
-                    // 如果滚动到视频结束
-                    if (video.currentTime === video.duration) {
-                        isVideoActive = false; // 禁用视频滚动控制
-                    }
-
-                    // 阻止默认滚动行为
-                    event.preventDefault();
-                }
-            },
-            { passive: false }
-        );
-
-        // 视频播放结束后跳转到下一页
-        video.addEventListener('ended', () => {
-            const nextSection = video.parentElement.nextElementSibling;
-            if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' }); // 平滑滚动到下一部分
-            }
-            isVideoActive = false; // 禁用滚动控制
-        });
-
-        // 检测页面滚动，确保视频在用户滚动回时正常工作
-        window.addEventListener('scroll', () => {
-            const videoSection = video.parentElement;
-            const rect = videoSection.getBoundingClientRect();
-            const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-
-            if (isInView) {
-                // 如果视频部分在可视区域
-                if (video.currentTime === video.duration || video.paused) {
-                    video.currentTime = 0; // 重置到开头
-                    video.play(); // 自动播放
-                }
-                isVideoActive = true; // 激活视频滚动控制
-            } else {
-                // 离开视频部分时暂停视频
-                video.pause();
-                isVideoActive = false;
-            }
-        });
-
-        // 确保页面加载时视频准备就绪
-        window.addEventListener('load', () => {
-            video.currentTime = 0;
-            video.pause();
-        });
-
-        // Tableau 初始化脚本
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        scriptElement.async = true;
-        document.body.appendChild(scriptElement);
-
-        scriptElement.onload = function () {
-            var divElement1 = document.getElementById('viz1733088996295');
-            var vizElement1 = divElement1.getElementsByTagName('object')[0];
-            vizElement1.style.width = '100%';
-            vizElement1.style.height = (divElement1.offsetWidth * 0.75) + 'px';
-
-            var divElement2 = document.getElementById('viz1733089591669');
-            var vizElement2 = divElement2.getElementsByTagName('object')[0];
-            vizElement2.style.width = '100%';
-            vizElement2.style.height = (divElement2.offsetWidth * 0.75) + 'px';
-
-            var divElement3 = document.getElementById('viz1733102908711');
-            if (divElement3) {
-                var vizElement3 = divElement3.getElementsByTagName('object')[0];
-                vizElement3.style.width = '90%';
-                vizElement3.style.height = (divElement3.offsetWidth * 0.75) + 'px';
-            }
-
-            var divElement4 = document.getElementById('viz1733091043213');
-            if (divElement4) {
-                var vizElement4 = divElement4.getElementsByTagName('object')[0];
-
-                function resizeTableau() {
-                    const containerWidth4 = divElement4.offsetWidth;
-                    const containerHeight4 = window.innerHeight;
-                    vizElement4.style.width = containerWidth4 + "px";
-                    vizElement4.style.height = containerHeight4 * 0.95 + "px";
-                }
-
-                resizeTableau();
-                window.addEventListener('resize', resizeTableau);
-            }
-        };
-        function typeText(element, text, speed = 50) {
-            element.textContent = ""; // 清空内容
-            let i = 0;
-            const typingInterval = setInterval(() => {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i); // 逐字追加
-                    i++;
-                } else {
-                    clearInterval(typingInterval); // 停止动画
-                    element.classList.remove("typing-effect"); // 移除光标效果
-                }
-            }, speed);
-        }
-
-        function observeDynamicTyping() {
-            const target = document.querySelector("#dynamic-section .text h2"); // 精准选择目标 h2
-            if (!target) return; // 如果未找到目标元素，停止执行
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            // 当目标元素进入可视区域
-                            const originalText = target.textContent; // 保存原始文本
-                            target.textContent = ""; // 清空内容
-                            target.classList.add("typing-effect"); // 添加光标效果
-                            typeText(target, originalText, 50); // 启动动态打字动画
-                            observer.unobserve(target); // 动画完成后停止观察
-                        }
-                    });
-                },
-                { threshold: 0.5 } // 当目标元素 50% 可见时触发
-            );
-
-            observer.observe(target); // 观察目标元素
-        }
-
-        window.addEventListener("load", observeDynamicTyping);
-    </script>
-</body>
+         </section>
+      </main>
+      <script>
+         const video = document.getElementById('dynamicVideo');
+         let isVideoActive = true;
+         const scrollSpeed = 0.2;
+         
+         window.addEventListener(
+             'wheel',
+             (event) => {
+                 if (isVideoActive) {
+                     const delta = event.deltaY;
+                     if (delta > 0) {
+                         video.currentTime = Math.min(video.currentTime + scrollSpeed, video.duration);
+                     } else {
+                         video.currentTime = Math.max(video.currentTime - scrollSpeed, 0);
+                     }
+         
+                     if (video.currentTime === video.duration) {
+                         isVideoActive = false;
+                     }
+         
+                     event.preventDefault();
+                 }
+             },
+             { passive: false }
+         );
+         
+         video.addEventListener('ended', () => {
+             const nextSection = video.parentElement.nextElementSibling;
+             if (nextSection) {
+                 nextSection.scrollIntoView({ behavior: 'smooth' }); 
+             }
+             isVideoActive = false; // 禁用滚动控制
+         });
+         
+         window.addEventListener('scroll', () => {
+             const videoSection = video.parentElement;
+             const rect = videoSection.getBoundingClientRect();
+             const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+         
+             if (isInView) {
+                 if (video.currentTime === video.duration || video.paused) {
+                     video.currentTime = 0;
+                     video.play();
+                 }
+                 isVideoActive = true; 
+             } else {
+                 video.pause();
+                 isVideoActive = false;
+             }
+         });
+         
+         window.addEventListener('load', () => {
+             video.currentTime = 0;
+             video.pause();
+         });
+         
+         var scriptElement = document.createElement('script');
+         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+         scriptElement.async = true;
+         document.body.appendChild(scriptElement);
+         
+         scriptElement.onload = function () {
+             var divElement1 = document.getElementById('viz1733088996295');
+             var vizElement1 = divElement1.getElementsByTagName('object')[0];
+             vizElement1.style.width = '100%';
+             vizElement1.style.height = (divElement1.offsetWidth * 0.75) + 'px';
+         
+             var divElement2 = document.getElementById('viz1733089591669');
+             var vizElement2 = divElement2.getElementsByTagName('object')[0];
+             vizElement2.style.width = '100%';
+             vizElement2.style.height = (divElement2.offsetWidth * 0.75) + 'px';
+         
+             var divElement3 = document.getElementById('viz1733102908711');
+             if (divElement3) {
+                 var vizElement3 = divElement3.getElementsByTagName('object')[0];
+                 vizElement3.style.width = '90%';
+                 vizElement3.style.height = (divElement3.offsetWidth * 0.75) + 'px';
+             }
+         
+             var divElement4 = document.getElementById('viz1733091043213');
+             if (divElement4) {
+                 var vizElement4 = divElement4.getElementsByTagName('object')[0];
+         
+                 function resizeTableau() {
+                     const containerWidth4 = divElement4.offsetWidth;
+                     const containerHeight4 = window.innerHeight;
+                     vizElement4.style.width = containerWidth4 + "px";
+                     vizElement4.style.height = containerHeight4 * 0.95 + "px";
+                 }
+         
+                 resizeTableau();
+                 window.addEventListener('resize', resizeTableau);
+             }
+         };
+         function typeText(element, text, speed = 50) {
+             element.textContent = ""; 
+             let i = 0;
+             const typingInterval = setInterval(() => {
+                 if (i < text.length) {
+                     element.textContent += text.charAt(i); 
+                     i++;
+                 } else {
+                     clearInterval(typingInterval);
+                     element.classList.remove("typing-effect"); 
+                 }
+             }, speed);
+         }
+         
+         function observeDynamicTyping() {
+             const target = document.querySelector("#dynamic-section .text h2");
+             if (!target) return; 
+             const observer = new IntersectionObserver(
+                 (entries, observer) => {
+                     entries.forEach((entry) => {
+                         if (entry.isIntersecting) {
+                             const originalText = target.textContent;
+                             target.textContent = ""; 
+                             target.classList.add("typing-effect"); 
+                             typeText(target, originalText, 50);
+                             observer.unobserve(target); 
+                         }
+                     });
+                 },
+                 { threshold: 0.5 } 
+             );
+         
+             observer.observe(target); 
+         }
+         
+         window.addEventListener("load", observeDynamicTyping);
+      </script>
+   </body>
 </html>
