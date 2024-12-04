@@ -9,7 +9,7 @@
          margin: 0;
          padding: 0;
          font-family: Arial, sans-serif;
-         font-size: 20px;
+         font-size: 25px;
          line-height: 1.8;
          background-color: #f5f5f5;
          overflow-x: hidden;
@@ -156,6 +156,10 @@
             font-weight: normal;
             font-style: normal;
          }
+         img, video {
+            max-width: 100%; 
+            height: auto; 
+        }
       </style>
    </head>
    <body>
@@ -632,7 +636,7 @@
       <script>
          const video = document.getElementById('dynamicVideo');
          let isVideoActive = true;
-         const scrollSpeed = 0.2;
+         const scrollSpeed = 0.15;
          
          window.addEventListener(
              'wheel',
@@ -662,7 +666,7 @@
              }
              isVideoActive = false; // 禁用滚动控制
          });
-         
+
          window.addEventListener('scroll', () => {
              const videoSection = video.parentElement;
              const rect = videoSection.getBoundingClientRect();
