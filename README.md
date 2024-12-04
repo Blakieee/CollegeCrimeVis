@@ -3,7 +3,7 @@
 This project was created by:
 - **[Wenxi Hu](https://github.com/wenxihuw)**
 - **[Haochen Yang](https://github.com/Blakieee)**
-- **(Zexuan Wei](https://github.com/JasonWei530)**
+- **[Zexuan Wei](https://github.com/JasonWei530)**
 - **Shang Yu**
 
 We are students at the **Georgia Institute of Technology**, where this project was developed as part of our exploration into data visualization, storytelling, and campus safety analysis.
